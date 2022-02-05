@@ -3,37 +3,57 @@ using System.Collections.Generic;
 
 public class Card
 {
-    public enum CardTypes { Pulpo, Michi }
+    public enum CardTypes { Elefante, Tortuga, Raton, Tigre, Conejo, Abeja, Oso, Serpiente, Cocodrilo, Cangrejo, Tiburon, Pulpo }
 
     private CardStats myStats;
-    private int currentHp, currentAttack, currentDefense;
+    private int currentHp;
 
     public Card(CardTypes type)
     {
         switch(type)
         {
             case CardTypes.Pulpo: default:
-                myStats = new CardStats("Pulpo", 10, 5, 10, 1);
+                myStats = new CardStats("Pulpo", 8, 8, 0);
             break;
-            case CardTypes.Michi:
-                myStats = new CardStats("Michi", 7, 10, 5, 1);
+            case CardTypes.Elefante:
+                myStats = new CardStats("Elefante", 20, 20, 0);
             break;
-        }        
-        SetStartingStats();
-    }
+            case CardTypes.Tortuga:
+                myStats = new CardStats("Tortuga", 1, 5, 2);
+            break;
+            case CardTypes.Raton:
+                myStats = new CardStats("Raton", 2, 1, 1);
+            break;
+            case CardTypes.Tigre:
+                myStats = new CardStats("Tigre", 7, 7, 5);
+            break;
+            case CardTypes.Conejo:
+                myStats = new CardStats("Conejo", 1, 1, 0);
+            break;
+            case CardTypes.Abeja:
+                myStats = new CardStats("Abeja", 5, 1, 2);
+            break;
+            case CardTypes.Oso:
+                myStats = new CardStats("Oso", 6, 6, 4);
+            break;
+            case CardTypes.Serpiente:
+                myStats = new CardStats("Serpiente", 3, 1, 2);
+            break;
+            case CardTypes.Cangrejo:
+                myStats = new CardStats("Cangrejo", 4, 4, 0);
+            break;
+            case CardTypes.Tiburon:
+                myStats = new CardStats("Tiburon", 10, 3, 0);
+            break;
+        }
 
-    private void SetStartingStats(){
         currentHp = myStats.HP;
-        currentAttack = myStats.Attack;
-        currentAttack = myStats.Defense;
     }
 
     #region CardProperties
 
     public CardStats CardStats{ get{ return myStats; } }
     public int CurrentHP{ get{ return currentHp; } }
-    public int CurrentAttack{ get{ return currentAttack; } }
-    public int CurrentDefense{ get{ return currentDefense; } }
 
     #endregion
 
@@ -46,24 +66,6 @@ public class Card
         else
             currentHp -= pointsLost;
 
-    }
-
-    public void ReduceAttack(int pointsLost){
-
-        if(currentAttack == 1 || currentAttack <= pointsLost)
-            currentAttack = 1;
-        else
-            currentAttack -= pointsLost;
-            
-    }
-
-    public void ReduceDefense(int pointsLost){
-
-        if(currentDefense == 1 || currentDefense <= pointsLost)
-            currentDefense = 1;
-        else
-            currentDefense -= pointsLost;
-            
     }
 
     #endregion

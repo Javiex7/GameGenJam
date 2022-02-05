@@ -3,7 +3,7 @@ using UnityEngine.EventSystems;
 
 public class DropCard : MonoBehaviour, IDropHandler
 {
-    private CardDragger actualCard = null;
+    private CardDragger actualCard = null;    
 
     public void OnDrop(PointerEventData eventData)
     {
@@ -11,7 +11,7 @@ public class DropCard : MonoBehaviour, IDropHandler
         if (cd != null && cd.playedCard == false)
         {
             cd.returnParent = this.transform;
-            cd.playedCard = true;
+            cd.playedCard = true;            
         }
         else if (cd.playedCard == true)
         {
