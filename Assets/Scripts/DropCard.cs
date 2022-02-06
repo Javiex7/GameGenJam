@@ -8,6 +8,7 @@ public class DropCard : MonoBehaviour, IDropHandler
 
     [SerializeField] private bool initialDeck = false;
     public CardDragger.slotType typeOfSlot = CardDragger.slotType.CARD;
+    public int cardCount;
 
     public void OnDrop(PointerEventData eventData)
     {
@@ -25,24 +26,20 @@ public class DropCard : MonoBehaviour, IDropHandler
                         oneCard = true;
                         cd.playedCard = true;
                     }
+
                     cd.returnParent = this.transform;
                     GameController.Instance.DropCard(cd.ID, cd.ThisCard);
                 }
                 else if (cd.playedCard == true)
                 {
-
                 }
             }
             else if (cd.typeOfSlot == CardDragger.slotType.CONDITION || cd.typeOfSlot == CardDragger.slotType.RESULT)
             {
+                cardCount = this.transform.childCount;
                 // Check others types of cards (Conditions and Results)
-
-                if (oneCard == false)
+                if (cardCount < 1 || initialDeck == true)
                 {
-                    if (initialDeck == false)
-                    {
-                        oneCard = true;
-                    }
                     cd.returnParent = this.transform;
                 }
             }

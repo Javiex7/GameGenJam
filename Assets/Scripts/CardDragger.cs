@@ -42,7 +42,6 @@ public class CardDragger : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
         placeHolder.transform.SetSiblingIndex(this.transform.GetSiblingIndex());
 
-
         returnParent = this.transform.parent;
         this.transform.SetParent(this.transform.parent.parent);
         GetComponent<CanvasGroup>().blocksRaycasts = false;
