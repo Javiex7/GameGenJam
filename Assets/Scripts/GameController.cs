@@ -10,13 +10,14 @@ public class GameController : MonoBehaviour
     private static PlayerHand playerHand;
     public static PlayerHand PlayerHandInstance { get{ return playerHand; } }
     public GameObject hand;
+    public GameObject cardPrefab;
+    public GameObject enemyZone;
 
     private Dictionary<int, Card> playerCards;
     private Dictionary<int, Card> enemyCards;
 
-    public List<Card.CardTypes> enemyCardsSetter;
-    public GameObject cardPrefab;
-    public GameObject mobZone;
+    public List<Card.CardTypes> enemyCardsSetter;  
+    public List<int> enemyCardsPositions;   
 
     void Awake()
     {
@@ -24,14 +25,17 @@ public class GameController : MonoBehaviour
 
         playerCards = new Dictionary<int, Card>();
         enemyCards = new Dictionary<int, Card>();
-        playerHand = hand.GetComponent<PlayerHand>();
+        playerHand = hand.GetComponent<PlayerHand>();  
+
+        Transform[] enemyZones = enemyZone.GetComponentsInChildren<Transform>();      
 
         int i = 0;
         foreach (Card.CardTypes card in enemyCardsSetter)
         {
             Card nCard = new Card(card);
             enemyCards.Add(i, nCard);
-            GameObject newCard = Instantiate(cardPrefab, Vector3.zero, Quaternion.identity, mobZone.transform) as GameObject;
+            GameObject newCard = Instantiate(cardPrefab, Vector3.zero, Quaternion.identity, enemyZones[enemyCardsPositions[i]+1]) as GameObject;
+            newCard.transform.LeanScale(new Vector2(1.3f, 1.3f), 0.15f);
             CardDragger nCD = newCard.GetComponent<CardDragger>();
             nCD.ID = i;
             nCD.ThisCard = nCard;
