@@ -18,7 +18,7 @@ public class PlayerHand : MonoBehaviour
         int i = 0;
         foreach (Card.CardTypes card in handCreator)
         {
-            Card nCard = new Card(card);
+            Card nCard = new Card(card, i);
             playerHand.Add(i, nCard);
             GameObject newCard = Instantiate(cardPrefab, Vector3.zero, Quaternion.identity, gameObject.transform) as GameObject;
             CardDragger nCD = newCard.GetComponent<CardDragger>();
