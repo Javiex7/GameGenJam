@@ -14,7 +14,7 @@ public class CardDragger : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
         RESULT
     }
 
-    public slotType typeOfSlot = slotType.CARD;
+    public slotType typeOfSlot;
 
     private Vector2 scale = new Vector2(1.4f, 1.4f);
     private GameObject placeHolder = null;
@@ -44,22 +44,22 @@ public class CardDragger : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     {
         this.transform.position = eventData.position;
 
+        int newPos = returnParent.childCount;
 
-        int newPos = returnParent.GetChildCount();
-
-        for (int i = 0; i < returnParent.childCount; i++)
+        if (typeOfSlot == slotType.CARD)
         {
-            if (this.transform.position.x < returnParent.GetChild(i).position.x)
+            for (int i = 0; i < returnParent.childCount; i++)
             {
-                newPos = i;
-                if (placeHolder.transform.GetSiblingIndex() < newPos)
+                if (this.transform.position.x < returnParent.GetChild(i).position.x)
                 {
-                    newPos--;
+                    newPos = i;
+                    if (placeHolder.transform.GetSiblingIndex() < newPos)
+                    {
+                        newPos--;
+                    }
+                    break;
                 }
-
-                break;
             }
-
             placeHolder.transform.SetSiblingIndex(newPos);
         }
     }
@@ -70,7 +70,6 @@ public class CardDragger : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
         this.transform.SetSiblingIndex(placeHolder.transform.GetSiblingIndex());
         Destroy(placeHolder);
-
 
         GetComponent<CanvasGroup>().blocksRaycasts = true;
 

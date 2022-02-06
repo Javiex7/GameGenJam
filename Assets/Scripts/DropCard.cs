@@ -4,8 +4,9 @@ using UnityEngine.EventSystems;
 public class DropCard : MonoBehaviour, IDropHandler
 {
     private bool oneCard = false;
-    [SerializeField] private bool initialDeck = false;
+    private CardDragger actualCard = null;
 
+    [SerializeField] private bool initialDeck = false;
     public CardDragger.slotType typeOfSlot = CardDragger.slotType.CARD;
 
     public void OnDrop(PointerEventData eventData)
@@ -28,19 +29,21 @@ public class DropCard : MonoBehaviour, IDropHandler
                 }
                 else if (cd.playedCard == true)
                 {
+
                 }
             }
-        }
-        else if (cd.typeOfSlot == CardDragger.slotType.CONDITION || cd.typeOfSlot == CardDragger.slotType.RESULT)
-        {
-            // Check others types of cards (Conditions and Results)
-            if (oneCard == false)
+            else if (cd.typeOfSlot == CardDragger.slotType.CONDITION || cd.typeOfSlot == CardDragger.slotType.RESULT)
             {
-                if (initialDeck == false)
+                // Check others types of cards (Conditions and Results)
+
+                if (oneCard == false)
                 {
-                    oneCard = true;
+                    if (initialDeck == false)
+                    {
+                        oneCard = true;
+                    }
+                    cd.returnParent = this.transform;
                 }
-                cd.returnParent = this.transform;
             }
         }
     }
