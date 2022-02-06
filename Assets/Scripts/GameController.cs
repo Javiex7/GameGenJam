@@ -10,13 +10,13 @@ public class GameController : MonoBehaviour
     private static PlayerHand playerHand;
     public static PlayerHand PlayerHandInstance { get{ return playerHand; } }
     public GameObject hand;
+    public GameObject cardPrefab;
+    public GameObject mobZone;
 
     private Dictionary<int, Card> playerCards;
     private Dictionary<int, Card> enemyCards;
 
-    public List<Card.CardTypes> enemyCardsSetter;
-    public GameObject cardPrefab;
-    public GameObject mobZone;
+    public List<Card.CardTypes> enemyCardsSetter;    
 
     void Awake()
     {

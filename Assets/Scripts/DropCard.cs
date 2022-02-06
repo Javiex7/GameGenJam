@@ -12,14 +12,6 @@ public class DropCard : MonoBehaviour, IDropHandler
     public void OnDrop(PointerEventData eventData)
     {
         CardDragger cd = eventData.pointerDrag.GetComponent<CardDragger>();
-        if (cd != null && cd.playedCard == false)
-        {
-            GameController.PlayerHandInstance.DragCard(cd.ID);
-            cd.returnParent = this.transform;
-            cd.playedCard = true;              
-            GameController.Instance.DropCard(cd.ID, cd.ThisCard);          
-        }
-
         if (typeOfSlot == cd.typeOfSlot)
         {
             if (cd.typeOfSlot == CardDragger.slotType.CARD)
@@ -29,10 +21,12 @@ public class DropCard : MonoBehaviour, IDropHandler
                 {
                     if (initialDeck == false)
                     {
+                        GameController.PlayerHandInstance.DragCard(cd.ID);
                         oneCard = true;
                         cd.playedCard = true;
                     }
                     cd.returnParent = this.transform;
+                    GameController.Instance.DropCard(cd.ID, cd.ThisCard);
                 }
                 else if (cd.playedCard == true)
                 {

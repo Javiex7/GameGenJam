@@ -11,6 +11,9 @@ public class CardDragger : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     private Card thisCard;
     public Card ThisCard{ get{ return thisCard; } set{ thisCard = value; } }
 
+    public float cardWidth = 144.5798f;
+    public float cardHeight = 198.7973f;
+
     public enum slotType
     {
         CARD,
@@ -22,6 +25,10 @@ public class CardDragger : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
     private Vector2 scale = new Vector2(1.4f, 1.4f);
     private GameObject placeHolder = null;
+
+    void Start() {
+        this.transform.GetComponent<RectTransform>().sizeDelta = new Vector2(cardWidth, cardHeight);
+    }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
