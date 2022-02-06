@@ -7,8 +7,9 @@ public class Card
 
     private CardStats myStats;
     private int currentHp;
+    private int myID;
 
-    public Card(CardTypes type)
+    public Card(CardTypes type, int _id)
     {
         switch(type)
         {
@@ -48,12 +49,14 @@ public class Card
         }
 
         currentHp = myStats.HP;
+        myID = _id;
     }
 
     #region CardProperties
 
     public CardStats CardStats{ get{ return myStats; } }
     public int CurrentHP{ get{ return currentHp; } }
+    public int MyID{ get{ return myID;} set{ myID = value; } }
 
     #endregion
 
