@@ -9,6 +9,7 @@ public class DropCard : MonoBehaviour, IDropHandler
     [SerializeField] private bool initialDeck = false;
     public CardDragger.slotType typeOfSlot = CardDragger.slotType.CARD;
     public int cardCount;
+    public bool isEnemySlot = false;
 
     public void OnDrop(PointerEventData eventData)
     {
@@ -17,22 +18,29 @@ public class DropCard : MonoBehaviour, IDropHandler
         {
             if (cd.typeOfSlot == CardDragger.slotType.CARD)
             {
-                // Check if the card has been played early if not, position the card in the slot
-                if (cd.playedCard == false && oneCard == false)
+                if(isEnemySlot)
                 {
-                    if (initialDeck == false)
+                    if (cd.playedCard == true)
                     {
-                        GameController.PlayerHandInstance.DragCard(cd.ID);
-                        oneCard = true;
-                        cd.playedCard = true;
+                        //COSAS DE COMBATE  
                     }
-
-                    cd.returnParent = this.transform;
-                    GameController.Instance.DropCard(cd.ID, cd.ThisCard);
                 }
-                else if (cd.playedCard == true)
+                else
                 {
-                }
+                    // Check if the card has been played early if not, position the card in the slot
+                    if (cd.playedCard == false && oneCard == false)
+                    {
+                        if (initialDeck == false)
+                        {
+                            GameController.PlayerHandInstance.DragCard(cd.ID);
+                            oneCard = true;
+                            cd.playedCard = true;
+                            GameController.Instance.DropCard(cd.ID, cd.ThisCard);
+                        }
+
+                        cd.returnParent = this.transform;
+                    }
+                }                
             }
             else if (cd.typeOfSlot == CardDragger.slotType.CONDITION || cd.typeOfSlot == CardDragger.slotType.RESULT)
             {

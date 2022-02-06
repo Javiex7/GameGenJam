@@ -6,7 +6,7 @@ public class CardDragger : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 {
     public Transform returnParent = null;
     public bool playedCard;    
-    private int id;
+    [SerializeField] private int id;
     public int ID{ get{ return id; } set{ id = value; } }
     private Card thisCard;
     public Card ThisCard{ get{ return thisCard; } set{ thisCard = value; } }
