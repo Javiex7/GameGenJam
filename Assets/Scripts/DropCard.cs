@@ -10,8 +10,10 @@ public class DropCard : MonoBehaviour, IDropHandler
         CardDragger cd = eventData.pointerDrag.GetComponent<CardDragger>();
         if (cd != null && cd.playedCard == false)
         {
+            GameController.PlayerHandInstance.DragCard(cd.ID);
             cd.returnParent = this.transform;
-            cd.playedCard = true;            
+            cd.playedCard = true;              
+            GameController.Instance.DropCard(cd.ID, cd.ThisCard);          
         }
         else if (cd.playedCard == true)
         {

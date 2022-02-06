@@ -4,22 +4,16 @@ using UnityEngine.EventSystems;
 public class CardDragger : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     public Transform returnParent = null;
-    public bool playedCard;
-
-    private PlayerHand myHand;
+    public bool playedCard;    
     private int id;
     public int ID{ get{ return id; } set{ id = value; } }
-
-    void Awake() {
-        myHand = GetComponentInParent<PlayerHand>();
-    }
+    private Card thisCard;
+    public Card ThisCard{ get{ return thisCard; } set{ thisCard = value; } }
 
     public void OnBeginDrag(PointerEventData eventData)
-    {        
-        myHand.DragCard(id);
+    {                
         returnParent = this.transform.parent;
         this.transform.SetParent(this.transform.parent.parent);
-
         GetComponent<CanvasGroup>().blocksRaycasts = false;
     }
 
