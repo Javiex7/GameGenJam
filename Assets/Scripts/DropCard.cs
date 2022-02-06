@@ -25,8 +25,6 @@ public class DropCard : MonoBehaviour, IDropHandler
                     {                        
                         GameController.Instance.PlayerAttack(cd.ID, gameObject.GetComponentInChildren<CardDragger>().ID);  
                     }
-                    actualCard = cd;
-                    cd.returnParent = this.transform;
                 }
                 else
                 {
