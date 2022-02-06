@@ -451,7 +451,7 @@ RectTransform:
   - {fileID: 1537848320}
   - {fileID: 755698767}
   m_Father: {fileID: 1128355539}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -597,7 +597,7 @@ RectTransform:
   - {fileID: 1977097350}
   - {fileID: 1688818357}
   m_Father: {fileID: 1128355539}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -915,6 +915,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7648979638184709327, guid: 25e3064cfc90ef2489fdbcd2063299f2, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25e3064cfc90ef2489fdbcd2063299f2, type: 3}
 --- !u!224 &1034821946 stripped
@@ -1015,8 +1019,8 @@ RectTransform:
   m_Children:
   - {fileID: 1814751551}
   - {fileID: 196998914}
-  - {fileID: 748236973}
   - {fileID: 896836249}
+  - {fileID: 748236973}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1273,8 +1277,10 @@ MonoBehaviour:
   hand: {fileID: 1814751550}
   cardPrefab: {fileID: 8543104390605002332, guid: 5730e36148b0178479f5fc97ded061d0, type: 3}
   enemyZone: {fileID: 896836248}
+  playerZone: {fileID: 748236972}
+  enemyZones: []
   enemyCardsSetter: 00000000
-  enemyCardsPositions: 00000000
+  enemyCardsPositions: 01000000
 --- !u!4 &1561732925
 Transform:
   m_ObjectHideFlags: 0

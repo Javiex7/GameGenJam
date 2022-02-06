@@ -21,9 +21,9 @@ public class DropCard : MonoBehaviour, IDropHandler
             {
                 if(isEnemySlot)
                 {
-                    if (cd.playedCard == true)
-                    {
-                        //COSAS DE COMBATE  
+                    if (cd.playedCard == true && transform.childCount > 0)
+                    {                        
+                        GameController.Instance.PlayerAttack(cd.ID, gameObject.GetComponentInChildren<CardDragger>().ID);  
                     }
                     actualCard = cd;
                     cd.returnParent = this.transform;
