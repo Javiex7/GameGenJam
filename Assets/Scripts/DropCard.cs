@@ -12,7 +12,7 @@ public class DropCard : MonoBehaviour, IDropHandler
     public void OnDrop(PointerEventData eventData)
     {
         CardDragger cd = eventData.pointerDrag.GetComponent<CardDragger>();
-
+        Debug.Log("Drop");
         if (typeOfSlot == cd.typeOfSlot)
         {
             if (cd.typeOfSlot == CardDragger.slotType.CARD)
@@ -25,23 +25,19 @@ public class DropCard : MonoBehaviour, IDropHandler
                         oneCard = true;
                         cd.playedCard = true;
                     }
+
                     cd.returnParent = this.transform;
                 }
                 else if (cd.playedCard == true)
                 {
-
                 }
             }
             else if (cd.typeOfSlot == CardDragger.slotType.CONDITION || cd.typeOfSlot == CardDragger.slotType.RESULT)
             {
+                int cardCount = this.transform.childCount;
                 // Check others types of cards (Conditions and Results)
-
-                if (oneCard == false)
+                if (cardCount < 1 || initialDeck == true)
                 {
-                    if (initialDeck == false)
-                    {
-                        oneCard = true;
-                    }
                     cd.returnParent = this.transform;
                 }
             }
