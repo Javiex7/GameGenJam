@@ -3,13 +3,14 @@ using UnityEngine.EventSystems;
 
 public class DropCard : MonoBehaviour, IDropHandler
 {
-    private bool oneCard = false;
-    private CardDragger actualCard = null;
-
     [SerializeField] private bool initialDeck = false;
     public CardDragger.slotType typeOfSlot = CardDragger.slotType.CARD;
+
     public int cardCount;
     public bool isEnemySlot = false;
+    public CardDragger actualCard = null;
+
+    private bool oneCard = false;
 
     public void OnDrop(PointerEventData eventData)
     {
@@ -24,6 +25,8 @@ public class DropCard : MonoBehaviour, IDropHandler
                     {
                         //COSAS DE COMBATE  
                     }
+                    actualCard = cd;
+                    cd.returnParent = this.transform;
                 }
                 else
                 {
@@ -48,6 +51,7 @@ public class DropCard : MonoBehaviour, IDropHandler
                 // Check others types of cards (Conditions and Results)
                 if (cardCount < 1 || initialDeck == true)
                 {
+                    actualCard = cd;
                     cd.returnParent = this.transform;
                 }
             }
