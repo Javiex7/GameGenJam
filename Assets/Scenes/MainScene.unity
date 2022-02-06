@@ -1279,8 +1279,8 @@ MonoBehaviour:
   enemyZone: {fileID: 896836248}
   playerZone: {fileID: 748236972}
   enemyZones: []
-  enemyCardsSetter: 00000000
-  enemyCardsPositions: 01000000
+  enemyCardsSetter: 010000000500000008000000
+  enemyCardsPositions: 000000000100000004000000
 --- !u!4 &1561732925
 Transform:
   m_ObjectHideFlags: 0
@@ -1631,6 +1631,7 @@ MonoBehaviour:
   typeOfSlot: 0
   cardCount: 0
   isEnemySlot: 0
+  actualCard: {fileID: 0}
 --- !u!114 &1814751556
 MonoBehaviour:
   m_ObjectHideFlags: 0
