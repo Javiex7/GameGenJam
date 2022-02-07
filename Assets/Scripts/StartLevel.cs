@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -5,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class StartLevel : MonoBehaviour
 {
     public static string selectedPuzzle;
+    public Animator transition;
 
     private GameObject condition1;
     private GameObject condition2;
@@ -62,7 +64,18 @@ public class StartLevel : MonoBehaviour
 
             // Select level/puzzle (1, 2 or 3)
             selectedPuzzle = "MainScene";
-            SceneManager.LoadScene(selectedPuzzle);
-        }
+
+            StartCoroutine(loadLevel(selectedPuzzle));
+        } 
     }
+
+    IEnumerator loadLevel(string newScene)
+    {
+        transition.SetTrigger("Start");
+
+        yield return new WaitForSeconds(0.5f);
+
+        SceneManager.LoadScene(newScene);
+    }
+
 }
