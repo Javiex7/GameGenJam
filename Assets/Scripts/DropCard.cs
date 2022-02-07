@@ -19,29 +19,36 @@ public class DropCard : MonoBehaviour, IDropHandler
         {
             if (cd.typeOfSlot == CardDragger.slotType.CARD)
             {
-                if(isEnemySlot)
+                if((!cd.usedCard) && GameController.Instance.AbleToUseMana(cd.ThisCard.CardStats.ManaCost))
                 {
-                    if (cd.playedCard == true && transform.childCount > 0)
-                    {                        
-                        GameController.Instance.PlayerAttack(cd.ID, gameObject.GetComponentInChildren<CardDragger>().ID);  
-                    }
-                }
-                else
-                {
-                    // Check if the card has been played early if not, position the card in the slot
-                    if (cd.playedCard == false && oneCard == false)
+                    if(isEnemySlot)
                     {
-                        if (initialDeck == false)
-                        {
-                            GameController.PlayerHandInstance.DragCard(cd.ID);
-                            oneCard = true;
-                            cd.playedCard = true;
-                            GameController.Instance.DropCard(cd.ID, cd.ThisCard);
+                        if (cd.playedCard == true && transform.childCount > 0)
+                        {                        
+                            GameController.Instance.PlayerAttack(cd.ID, gameObject.GetComponentInChildren<CardDragger>().ID);
+                            GameController.Instance.ReduceMana(cd.ThisCard.CardStats.ManaCost);
+                            cd.usedCard = true;    
+                            GameController.Instance.roundEnded = GameController.Instance.CheckIfRoundEnded();                       
                         }
-
-                        cd.returnParent = this.transform;
                     }
-                }                
+                    else
+                    {
+                        // Check if the card has been played early if not, position the card in the slot
+                        if (cd.playedCard == false && oneCard == false)
+                        {
+                            if (initialDeck == false)
+                            {
+                                GameController.PlayerHandInstance.DragCard(cd.ID);
+                                oneCard = true;
+                                cd.playedCard = true;
+                                GameController.Instance.DropCard(cd.ID, cd.ThisCard);
+                                GameController.Instance.ReduceMana(cd.ThisCard.CardStats.ManaCost);
+                            }
+
+                            cd.returnParent = this.transform;
+                        }
+                    } 
+                }                               
             }
             else if (cd.typeOfSlot == CardDragger.slotType.CONDITION || cd.typeOfSlot == CardDragger.slotType.RESULT)
             {
