@@ -45,6 +45,7 @@ public class StartGame : MonoBehaviour
                 else
                 {
                     sendRules[i] = dc.actualCard;
+                    sendRules[i].RuleSetted = true;
                 }
             }
         }

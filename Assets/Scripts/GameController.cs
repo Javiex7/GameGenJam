@@ -39,6 +39,7 @@ public class GameController : MonoBehaviour
             GameObject newCard = Instantiate(cardPrefab, Vector3.zero, Quaternion.identity, enemyZones[cID]) as GameObject;
             newCard.transform.LeanScale(new Vector2(1.3f, 1.3f), 0.15f);
             CardDragger nCD = newCard.GetComponent<CardDragger>();
+            nCD.RuleSetted = true;
             nCD.ID = cID;
             nCD.ThisCard = nCard;
             newCard.GetComponentsInChildren<TextMeshProUGUI>()[0].SetText(enemyCards[cID].CardStats.Name);
@@ -107,7 +108,7 @@ public class GameController : MonoBehaviour
         foreach(Transform t in playerZones)
         {
             CardDragger card = t.gameObject.GetComponentInChildren<CardDragger>();
-            if(card.ID == cardID)
+            if(card != null && card.ID == cardID)
             {
                 Destroy(card.gameObject); 
                 playerCards.Remove(cardID);               
@@ -121,7 +122,7 @@ public class GameController : MonoBehaviour
         foreach(Transform t in enemyZones)
         {
             CardDragger card = t.gameObject.GetComponentInChildren<CardDragger>();
-            if(card.ID == cardID)
+            if(card != null && card.ID == cardID)
             {
                 Destroy(card.gameObject);    
                 enemyCards.Remove(cardID);            

@@ -482,6 +482,7 @@ MonoBehaviour:
   cardWidth: 400
   cardHeight: 180
   typeOfSlot: 2
+  ruleSetted: 1
 --- !u!114 &188617739
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -694,6 +695,7 @@ MonoBehaviour:
   cardWidth: 400
   cardHeight: 180
   typeOfSlot: 1
+  ruleSetted: 1
 --- !u!114 &558502823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1009,6 +1011,7 @@ MonoBehaviour:
   cardWidth: 400
   cardHeight: 180
   typeOfSlot: 1
+  ruleSetted: 1
 --- !u!114 &925212429
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1992,6 +1995,7 @@ MonoBehaviour:
   cardWidth: 400
   cardHeight: 180
   typeOfSlot: 2
+  ruleSetted: 1
 --- !u!114 &1620333157
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2386,6 +2390,7 @@ MonoBehaviour:
   cardWidth: 400
   cardHeight: 180
   typeOfSlot: 2
+  ruleSetted: 1
 --- !u!114 &1763772958
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2911,6 +2916,7 @@ MonoBehaviour:
   cardWidth: 400
   cardHeight: 180
   typeOfSlot: 1
+  ruleSetted: 1
 --- !u!114 &4034153576152433219
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -22,6 +22,7 @@ public class PlayerHand : MonoBehaviour
             playerHand.Add(i, nCard);
             GameObject newCard = Instantiate(cardPrefab, Vector3.zero, Quaternion.identity, gameObject.transform) as GameObject;
             CardDragger nCD = newCard.GetComponent<CardDragger>();
+            nCD.RuleSetted = false;
             nCD.ID = i;
             nCD.ThisCard = nCard;
             newCard.GetComponentsInChildren<TextMeshProUGUI>()[0].SetText(playerHand[i].CardStats.Name);
