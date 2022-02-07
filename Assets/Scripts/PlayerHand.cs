@@ -25,7 +25,6 @@ public class PlayerHand : MonoBehaviour
             nCD.RuleSetted = false;
             nCD.ID = i;
             nCD.ThisCard = nCard;
-            newCard.GetComponentsInChildren<TextMeshProUGUI>()[0].SetText(playerHand[i].CardStats.Name);
             i++;
         }
     }

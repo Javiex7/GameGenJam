@@ -27,7 +27,7 @@ public class CardDragger : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     private Vector2 scale = new Vector2(1.4f, 1.4f);
     private GameObject placeHolder = null;
 
-    private bool ruleSetted;
+    private bool ruleSetted; //Esta variable sirve para marcar que una carta no se puede mver porque es regla o carta enemiga
     public bool RuleSetted{ get{ return ruleSetted; } set{ ruleSetted = value; } }
 
     void Start()
