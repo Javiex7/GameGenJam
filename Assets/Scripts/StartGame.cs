@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class StartGame : MonoBehaviour
 {
@@ -49,7 +51,13 @@ public class StartGame : MonoBehaviour
 
         if (c == true)
         {
-
+            LoadRules.c1 = sendRules[0].GetComponentInChildren<Text>().text;
+            LoadRules.c2 = sendRules[1].GetComponentInChildren<Text>().text;
+            LoadRules.c3 = sendRules[2].GetComponentInChildren<Text>().text;
+            LoadRules.r1 = sendRules[3].GetComponentInChildren<Text>().text;
+            LoadRules.r2 = sendRules[4].GetComponentInChildren<Text>().text;
+            LoadRules.r3 = sendRules[5].GetComponentInChildren<Text>().text;
+            SceneManager.LoadScene("MainScene");
         }
     }
 }

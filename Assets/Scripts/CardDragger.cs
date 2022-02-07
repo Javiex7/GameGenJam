@@ -11,9 +11,9 @@ public class CardDragger : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     private Card thisCard;
     public Card ThisCard{ get{ return thisCard; } set{ thisCard = value; } }
 
-    public float cardWidth = 144.5798f;
-    public float cardHeight = 198.7973f;
-
+    public float cardWidth;
+    public float cardHeight;
+    
     public enum slotType
     {
         CARD,
