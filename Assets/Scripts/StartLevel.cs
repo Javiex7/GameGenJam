@@ -2,8 +2,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class StartGame : MonoBehaviour
+public class StartLevel : MonoBehaviour
 {
+    public static string selectedPuzzle;
+
     private GameObject condition1;
     private GameObject condition2;
     private GameObject condition3;
@@ -58,7 +60,10 @@ public class StartGame : MonoBehaviour
             LoadRules.r1 = sendRules[3].GetComponentInChildren<Text>().text;
             LoadRules.r2 = sendRules[4].GetComponentInChildren<Text>().text;
             LoadRules.r3 = sendRules[5].GetComponentInChildren<Text>().text;
-            SceneManager.LoadScene("MainScene");
+
+            // Select level/puzzle (1, 2 or 3)
+            selectedPuzzle = "MainScene";
+            SceneManager.LoadScene(selectedPuzzle);
         }
     }
 }

@@ -1,4 +1,7 @@
 Base path: 'F:/Unity/Unity Editors/2020.3.27f1/Editor/Data', plugins path 'F:/Unity/Unity Editors/2020.3.27f1/Editor/Data/PlaybackEngines'
 Cmd: initializeCompiler
 
+<<<<<<< HEAD
 Cmd: shutdown
+=======
+>>>>>>> origin/UI-dos
