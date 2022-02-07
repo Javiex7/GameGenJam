@@ -5,7 +5,8 @@ using UnityEngine.EventSystems;
 public class CardDragger : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     public Transform returnParent = null;
-    public bool playedCard;    
+    public bool playedCard; 
+    public bool usedCard = false;
     [SerializeField] private int id;
     public int ID{ get{ return id; } set{ id = value; } }
     private Card thisCard;
@@ -29,11 +30,9 @@ public class CardDragger : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     private bool ruleSetted;
     public bool RuleSetted{ get{ return ruleSetted; } set{ ruleSetted = value; } }
 
-    void Start() {
-        this.transform.GetComponent<RectTransform>().sizeDelta = new Vector2(cardWidth, cardHeight);
-        
-        if(typeOfSlot == slotType.CONDITION || typeOfSlot == slotType.RESULT)
-            ruleSetted = true;
+    void Start()
+    {
+        this.transform.GetComponent<RectTransform>().sizeDelta = new Vector2(cardWidth, cardHeight); 
     }
 
     public void OnBeginDrag(PointerEventData eventData)

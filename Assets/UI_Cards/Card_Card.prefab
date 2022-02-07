@@ -229,6 +229,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   returnParent: {fileID: 0}
   playedCard: 0
+  id: 0
+  cardWidth: 0
+  cardHeight: 0
+  typeOfSlot: 0
 --- !u!114 &-973027960812546459
 MonoBehaviour:
   m_ObjectHideFlags: 0

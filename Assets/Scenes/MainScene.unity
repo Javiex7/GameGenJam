@@ -478,11 +478,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   returnParent: {fileID: 0}
   playedCard: 0
+  usedCard: 0
   id: 0
   cardWidth: 400
   cardHeight: 180
   typeOfSlot: 2
-  ruleSetted: 1
 --- !u!114 &188617739
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -691,11 +691,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   returnParent: {fileID: 0}
   playedCard: 0
+  usedCard: 0
   id: 0
   cardWidth: 400
   cardHeight: 180
   typeOfSlot: 1
-  ruleSetted: 1
 --- !u!114 &558502823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1275,11 +1275,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   returnParent: {fileID: 0}
   playedCard: 0
+  usedCard: 0
   id: 0
   cardWidth: 400
   cardHeight: 180
   typeOfSlot: 1
-  ruleSetted: 1
 --- !u!114 &925212429
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2397,8 +2397,10 @@ MonoBehaviour:
   enemyZone: {fileID: 896836248}
   playerZone: {fileID: 748236972}
   enemyZones: []
+  playerZones: []
   enemyCardsSetter: 010000000500000008000000
   enemyCardsPositions: 000000000100000004000000
+  playerMana: 50
 --- !u!4 &1561732925
 Transform:
   m_ObjectHideFlags: 0
@@ -2500,11 +2502,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   returnParent: {fileID: 0}
   playedCard: 0
+  usedCard: 0
   id: 0
   cardWidth: 400
   cardHeight: 180
   typeOfSlot: 2
-  ruleSetted: 1
 --- !u!114 &1620333157
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2895,11 +2897,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   returnParent: {fileID: 0}
   playedCard: 0
+  usedCard: 0
   id: 0
   cardWidth: 400
   cardHeight: 180
   typeOfSlot: 2
-  ruleSetted: 1
 --- !u!114 &1763772958
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3204,7 +3206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2eeac997128aca44881de4f2b15ebd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  handCreator: 0000000001000000000000000200000000000000000000000600000000000000
+  handCreator: 020000000100000005000000
   cardPrefab: {fileID: 8543104390605002332, guid: 5730e36148b0178479f5fc97ded061d0, type: 3}
 --- !u!1 &1919818679
 GameObject:
@@ -3687,11 +3689,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   returnParent: {fileID: 0}
   playedCard: 0
+  usedCard: 0
   id: 0
   cardWidth: 400
   cardHeight: 180
   typeOfSlot: 1
-  ruleSetted: 1
 --- !u!114 &4034153576152433219
 MonoBehaviour:
   m_ObjectHideFlags: 0

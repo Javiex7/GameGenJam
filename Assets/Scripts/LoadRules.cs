@@ -20,10 +20,16 @@ public class LoadRules : MonoBehaviour
     void Start()
     {
         textC1.text = c1;
+        textC1.GetComponentInParent<CardDragger>().RuleSetted = true;
         textC2.text = c2;
+        textC2.GetComponentInParent<CardDragger>().RuleSetted = true;
         textC3.text = c3;
+        textC3.GetComponentInParent<CardDragger>().RuleSetted = true;
         textR1.text = r1;
+        textR1.GetComponentInParent<CardDragger>().RuleSetted = true;
         textR2.text = r2;
+        textR2.GetComponentInParent<CardDragger>().RuleSetted = true;
         textR3.text = r3;
+        textR3.GetComponentInParent<CardDragger>().RuleSetted = true;
     }
 }
