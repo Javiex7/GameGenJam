@@ -8,11 +8,13 @@ public class PlayerHand : MonoBehaviour
     [Tooltip("Choose a number between 1 and 8")]
     public List<Card.CardTypes> handCreator;
     public GameObject cardPrefab;
+
+    private int lastID;
     
     private Dictionary<int, Card> playerHand;
 
     void Awake()
-    {
+    {        
         playerHand = new Dictionary<int, Card>();
 
         int i = 0;
@@ -28,6 +30,7 @@ public class PlayerHand : MonoBehaviour
             nCD.ThisCard = nCard;
             i++;
         }
+        lastID = i;
     }
 
     void Start()
@@ -46,5 +49,18 @@ public class PlayerHand : MonoBehaviour
         {
             playerHand.Remove(cardID);
         }
+    }
+
+    public void AddCard(GameObject card, Card.CardTypes type)
+    {
+        Card nCard = new Card(type, lastID);
+        playerHand.Add(lastID, nCard);
+        GameObject newCard = Instantiate(card, Vector3.zero, Quaternion.identity, gameObject.transform) as GameObject;
+        newCard.transform.GetComponent<RectTransform>().sizeDelta = new Vector2(144.26f, 190);
+        CardDragger nCD = newCard.GetComponent<CardDragger>();
+        nCD.RuleSetted = false;
+        nCD.ID = lastID;
+        nCD.ThisCard = nCard;
+        lastID++;
     }
 }

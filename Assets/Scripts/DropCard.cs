@@ -42,6 +42,7 @@ public class DropCard : MonoBehaviour, IDropHandler
                                 cd.playedCard = true;
                                 GameController.Instance.DropCard(cd.ID, cd.ThisCard);
                                 GameController.Instance.ReduceMana(cd.ThisCard.CardStats.ManaCost);
+                                GameController.Instance.ExecuteCardPlayedCondition();
                             }
 
                             cd.returnParent = this.transform;

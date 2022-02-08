@@ -157,8 +157,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 885.14, y: 350.4809}
-  m_SizeDelta: {x: -1770.3, y: 729.519}
+  m_AnchoredPosition: {x: 885.14, y: 350.2809}
+  m_SizeDelta: {x: -1770.3, y: 731}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &49228598
 MonoBehaviour:
@@ -360,6 +360,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 896836249}
     m_Modifications:
+    - target: {fileID: 3181850652964919152, guid: 25e3064cfc90ef2489fdbcd2063299f2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1561732924}
+    - target: {fileID: 3181850652964919152, guid: 25e3064cfc90ef2489fdbcd2063299f2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ClickCard
+      objectReference: {fileID: 0}
+    - target: {fileID: 3181850652964919152, guid: 25e3064cfc90ef2489fdbcd2063299f2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3181850652964919152, guid: 25e3064cfc90ef2489fdbcd2063299f2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7648979638184709320, guid: 25e3064cfc90ef2489fdbcd2063299f2, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1442,6 +1458,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 748236973}
     m_Modifications:
+    - target: {fileID: 3181850652964919152, guid: 25e3064cfc90ef2489fdbcd2063299f2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1561732924}
+    - target: {fileID: 3181850652964919152, guid: 25e3064cfc90ef2489fdbcd2063299f2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ClickCard
+      objectReference: {fileID: 0}
+    - target: {fileID: 3181850652964919152, guid: 25e3064cfc90ef2489fdbcd2063299f2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3181850652964919152, guid: 25e3064cfc90ef2489fdbcd2063299f2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7648979638184709320, guid: 25e3064cfc90ef2489fdbcd2063299f2, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2288,6 +2320,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 748236973}
     m_Modifications:
+    - target: {fileID: 3181850652964919152, guid: 25e3064cfc90ef2489fdbcd2063299f2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1561732924}
+    - target: {fileID: 3181850652964919152, guid: 25e3064cfc90ef2489fdbcd2063299f2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ClickCard
+      objectReference: {fileID: 0}
+    - target: {fileID: 3181850652964919152, guid: 25e3064cfc90ef2489fdbcd2063299f2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3181850652964919152, guid: 25e3064cfc90ef2489fdbcd2063299f2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7648979638184709320, guid: 25e3064cfc90ef2489fdbcd2063299f2, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2488,6 +2536,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 748236973}
     m_Modifications:
+    - target: {fileID: 3181850652964919152, guid: 25e3064cfc90ef2489fdbcd2063299f2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1561732924}
+    - target: {fileID: 3181850652964919152, guid: 25e3064cfc90ef2489fdbcd2063299f2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ClickCard
+      objectReference: {fileID: 0}
+    - target: {fileID: 3181850652964919152, guid: 25e3064cfc90ef2489fdbcd2063299f2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3181850652964919152, guid: 25e3064cfc90ef2489fdbcd2063299f2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7648979638184709320, guid: 25e3064cfc90ef2489fdbcd2063299f2, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2610,6 +2674,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 748236973}
     m_Modifications:
+    - target: {fileID: 3181850652964919152, guid: 25e3064cfc90ef2489fdbcd2063299f2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1561732924}
+    - target: {fileID: 3181850652964919152, guid: 25e3064cfc90ef2489fdbcd2063299f2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ClickCard
+      objectReference: {fileID: 0}
+    - target: {fileID: 3181850652964919152, guid: 25e3064cfc90ef2489fdbcd2063299f2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3181850652964919152, guid: 25e3064cfc90ef2489fdbcd2063299f2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7648979638184709320, guid: 25e3064cfc90ef2489fdbcd2063299f2, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2763,8 +2843,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 216.78003, y: 651.6271}
-  m_SizeDelta: {x: -732.98, y: 428.3725}
+  m_AnchoredPosition: {x: 216.75, y: 651.6271}
+  m_SizeDelta: {x: -728.5, y: 428.3725}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1078033497
 MonoBehaviour:
@@ -3518,6 +3598,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 896836249}
     m_Modifications:
+    - target: {fileID: 3181850652964919152, guid: 25e3064cfc90ef2489fdbcd2063299f2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1561732924}
+    - target: {fileID: 3181850652964919152, guid: 25e3064cfc90ef2489fdbcd2063299f2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ClickCard
+      objectReference: {fileID: 0}
+    - target: {fileID: 3181850652964919152, guid: 25e3064cfc90ef2489fdbcd2063299f2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3181850652964919152, guid: 25e3064cfc90ef2489fdbcd2063299f2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7648979638184709320, guid: 25e3064cfc90ef2489fdbcd2063299f2, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -3671,8 +3767,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -668.3533, y: 681.22504}
-  m_SizeDelta: {x: -1336.7068, y: 398.775}
+  m_AnchoredPosition: {x: -668.3533, y: 680.1}
+  m_SizeDelta: {x: -1336.7068, y: 400}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1443165050
 MonoBehaviour:
@@ -4008,6 +4104,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 748236973}
     m_Modifications:
+    - target: {fileID: 3181850652964919152, guid: 25e3064cfc90ef2489fdbcd2063299f2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1561732924}
+    - target: {fileID: 3181850652964919152, guid: 25e3064cfc90ef2489fdbcd2063299f2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ClickCard
+      objectReference: {fileID: 0}
+    - target: {fileID: 3181850652964919152, guid: 25e3064cfc90ef2489fdbcd2063299f2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3181850652964919152, guid: 25e3064cfc90ef2489fdbcd2063299f2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7648979638184709320, guid: 25e3064cfc90ef2489fdbcd2063299f2, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -4365,8 +4477,13 @@ MonoBehaviour:
   cardPrefab: {fileID: 8543104390605002332, guid: 5730e36148b0178479f5fc97ded061d0, type: 3}
   enemyZone: {fileID: 896836248}
   playerZone: {fileID: 748236972}
+  attackEnemyUI: {fileID: 940680094}
+  cloneCardUI: {fileID: 710841382}
   enemyZones: []
   playerZones: []
+  rule1: 0
+  rule2: 0
+  rule3: 0
   enemyCardsSetter: 010000000500000008000000
   enemyCardsPositions: 000000000100000004000000
   playerMana: 50
@@ -4520,6 +4637,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 896836249}
     m_Modifications:
+    - target: {fileID: 3181850652964919152, guid: 25e3064cfc90ef2489fdbcd2063299f2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1561732924}
+    - target: {fileID: 3181850652964919152, guid: 25e3064cfc90ef2489fdbcd2063299f2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ClickCard
+      objectReference: {fileID: 0}
+    - target: {fileID: 3181850652964919152, guid: 25e3064cfc90ef2489fdbcd2063299f2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3181850652964919152, guid: 25e3064cfc90ef2489fdbcd2063299f2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7648979638184709320, guid: 25e3064cfc90ef2489fdbcd2063299f2, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -4669,8 +4802,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 885.14, y: 680.4586}
-  m_SizeDelta: {x: -1770.3, y: 399.5414}
+  m_AnchoredPosition: {x: 885.14, y: 680.1}
+  m_SizeDelta: {x: -1770.3, y: 400}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1643143385
 MonoBehaviour:
@@ -4717,6 +4850,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 896836249}
     m_Modifications:
+    - target: {fileID: 3181850652964919152, guid: 25e3064cfc90ef2489fdbcd2063299f2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1561732924}
+    - target: {fileID: 3181850652964919152, guid: 25e3064cfc90ef2489fdbcd2063299f2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ClickCard
+      objectReference: {fileID: 0}
+    - target: {fileID: 3181850652964919152, guid: 25e3064cfc90ef2489fdbcd2063299f2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3181850652964919152, guid: 25e3064cfc90ef2489fdbcd2063299f2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7648979638184709320, guid: 25e3064cfc90ef2489fdbcd2063299f2, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -5853,6 +6002,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 896836249}
     m_Modifications:
+    - target: {fileID: 3181850652964919152, guid: 25e3064cfc90ef2489fdbcd2063299f2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1561732924}
+    - target: {fileID: 3181850652964919152, guid: 25e3064cfc90ef2489fdbcd2063299f2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ClickCard
+      objectReference: {fileID: 0}
+    - target: {fileID: 3181850652964919152, guid: 25e3064cfc90ef2489fdbcd2063299f2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3181850652964919152, guid: 25e3064cfc90ef2489fdbcd2063299f2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7648979638184709320, guid: 25e3064cfc90ef2489fdbcd2063299f2, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
