@@ -57,7 +57,7 @@ public class Card
     #region CardProperties
 
     public CardStats CardStats{ get{ return myStats; } }
-    public int CurrentHP{ get{ return currentHp; } }
+    public int CurrentHP{ get{ return currentHp; } set{ currentHp = value; }}
     public int MyID{ get{ return myID;} set{ myID = value; } }
 
     #endregion
