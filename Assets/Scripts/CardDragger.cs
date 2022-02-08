@@ -5,13 +5,24 @@ using UnityEngine.EventSystems;
 public class CardDragger : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     public Transform returnParent = null;
-    public bool playedCard; 
+    public bool playedCard;
     public bool usedCard = false;
     [SerializeField] private int id;
-    public int ID{ get{ return id; } set{ id = value; } }
+
+    public int ID
+    {
+        get { return id; }
+        set { id = value; }
+    }
+
     private Card thisCard;
-    public Card ThisCard{ get{ return thisCard; } set{ thisCard = value; } }
-    
+
+    public Card ThisCard
+    {
+        get { return thisCard; }
+        set { thisCard = value; }
+    }
+
     public enum slotType
     {
         CARD,
@@ -21,20 +32,21 @@ public class CardDragger : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
     public slotType typeOfSlot;
 
-    private Vector2 scale = new Vector2(1.4f, 1.4f);
+    private Vector2 scale = new Vector2(1.45f, 1.45f);
     private GameObject placeHolder = null;
 
-    private bool ruleSetted; //Esta variable sirve para marcar que una carta no se puede mver porque es regla o carta enemiga
-    public bool RuleSetted{ get{ return ruleSetted; } set{ ruleSetted = value; } }
+    private bool
+        ruleSetted; //Esta variable sirve para marcar que una carta no se puede mver porque es regla o carta enemiga
 
-    void Start()
+    public bool RuleSetted
     {
-         
+        get { return ruleSetted; }
+        set { ruleSetted = value; }
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        if(!ruleSetted)
+        if (!ruleSetted)
         {
             placeHolder = new GameObject();
             placeHolder.transform.SetParent(this.transform.parent);
@@ -51,12 +63,12 @@ public class CardDragger : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
             GetComponent<CanvasGroup>().blocksRaycasts = false;
 
             this.transform.LeanScale(scale, 0.15f);
-        }        
+        }
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        if(!ruleSetted)
+        if (!ruleSetted)
         {
             this.transform.position = eventData.position;
 
@@ -73,9 +85,11 @@ public class CardDragger : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
                         {
                             newPos--;
                         }
+
                         break;
                     }
                 }
+
                 placeHolder.transform.SetSiblingIndex(newPos);
             }
         }
@@ -83,7 +97,7 @@ public class CardDragger : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        if(!ruleSetted)
+        if (!ruleSetted)
         {
             this.transform.SetParent(returnParent);
 
@@ -92,14 +106,8 @@ public class CardDragger : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
             GetComponent<CanvasGroup>().blocksRaycasts = true;
 
-            if (playedCard == true)
-            {
-                this.transform.LeanScale(new Vector2(1.3f, 1.3f), 0.15f);
-            }
-            else
-            {
-                this.transform.LeanScale(Vector2.one, 0.15f);
-            }
+            this.transform.LeanScale(Vector2.one, 0.15f);
+            this.transform.GetComponent<RectTransform>().sizeDelta = new Vector2(205, 270);
         }
     }
 }
