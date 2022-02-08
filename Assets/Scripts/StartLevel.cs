@@ -36,6 +36,7 @@ public class StartLevel : MonoBehaviour
     public void checkRules()
     {
         c = true;
+        FindObjectOfType<AudioManager>().playSound("Button");
 
         for (int i = 0; i < 6; i++)
         {
@@ -70,9 +71,8 @@ public class StartLevel : MonoBehaviour
 
             // Select level/puzzle (1, 2 or 3)
             selectedPuzzle = "MainScene";
-
             StartCoroutine(loadLevel(selectedPuzzle));
-        } 
+        }
     }
 
     IEnumerator loadLevel(string newScene)

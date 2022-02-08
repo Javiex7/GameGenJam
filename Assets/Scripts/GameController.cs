@@ -66,8 +66,13 @@ public class GameController : MonoBehaviour
     void Start()
     {          
         attackEnemyUI.SetActive(false);
-        cloneCardUI.SetActive(false);
+        cloneCardUI.SetActive(false); 
+        StartCoroutine("FirstFrame");       
+    }
 
+    IEnumerator FirstFrame()
+    {
+        yield return new WaitForSeconds(0.25f);
         ExecuteStartingCondition();
     }
     
@@ -259,23 +264,26 @@ public class GameController : MonoBehaviour
 
     IEnumerator SelectMyCard()
     {
-        cloneCardUI.SetActive(true);
-        lastCardClicked = null;
-        selectCard = true;
-        while(selectCard)
+        if(playerCards.Count != 0)
         {
-            if(lastCardClicked != null)
+            cloneCardUI.SetActive(true);
+            lastCardClicked = null;
+            selectCard = true;
+            while(selectCard)
             {
-                CardDragger card = lastCardClicked.GetComponentInChildren<CardDragger>();
-                if(card != null)
+                if(lastCardClicked != null)
                 {
-                    hand.GetComponent<PlayerHand>().AddCard(card.gameObject, card.ThisCard.myType);
-                    selectCard = false;
+                    CardDragger card = lastCardClicked.GetComponentInChildren<CardDragger>();
+                    if(card != null)
+                    {
+                        hand.GetComponent<PlayerHand>().AddCard(card.gameObject, card.ThisCard.myType);
+                        selectCard = false;
+                    }
                 }
+                yield return new WaitForSeconds(0.25f);
             }
-            yield return new WaitForSeconds(0.25f);
-        }
-        cloneCardUI.SetActive(false);
+            cloneCardUI.SetActive(false);
+        }        
     }
 
     IEnumerator SpawnRabbit()
