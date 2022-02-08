@@ -21,6 +21,7 @@ public class PlayerHand : MonoBehaviour
             Card nCard = new Card(card, i);
             playerHand.Add(i, nCard);
             GameObject newCard = Instantiate(cardPrefab, Vector3.zero, Quaternion.identity, gameObject.transform) as GameObject;
+            newCard.transform.GetComponent<RectTransform>().sizeDelta = new Vector2(189.81f, 250);
             CardDragger nCD = newCard.GetComponent<CardDragger>();
             nCD.RuleSetted = false;
             nCD.ID = i;

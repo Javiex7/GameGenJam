@@ -27,8 +27,7 @@ public class DropCard : MonoBehaviour, IDropHandler
                         {                        
                             GameController.Instance.PlayerAttack(cd.ID, gameObject.GetComponentInChildren<CardDragger>().ID);
                             GameController.Instance.ReduceMana(cd.ThisCard.CardStats.ManaCost);
-                            cd.usedCard = true;    
-                            GameController.Instance.roundEnded = GameController.Instance.CheckIfRoundEnded();                       
+                            cd.usedCard = true;                           
                         }
                     }
                     else

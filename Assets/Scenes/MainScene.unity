@@ -726,8 +726,6 @@ MonoBehaviour:
   playedCard: 0
   usedCard: 0
   id: 0
-  cardWidth: 400
-  cardHeight: 180
   typeOfSlot: 2
 --- !u!114 &188617739
 MonoBehaviour:
@@ -1018,8 +1016,6 @@ MonoBehaviour:
   playedCard: 0
   usedCard: 0
   id: 0
-  cardWidth: 400
-  cardHeight: 180
   typeOfSlot: 1
 --- !u!114 &558502823
 MonoBehaviour:
@@ -1199,10 +1195,10 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1034821946}
-  - {fileID: 986613594}
-  - {fileID: 938120013}
-  - {fileID: 1537848320}
   - {fileID: 755698767}
+  - {fileID: 1537848320}
+  - {fileID: 938120013}
+  - {fileID: 986613594}
   m_Father: {fileID: 1128355539}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1228,7 +1224,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7648979638184709320, guid: 25e3064cfc90ef2489fdbcd2063299f2, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7648979638184709320, guid: 25e3064cfc90ef2489fdbcd2063299f2, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1730,8 +1726,6 @@ MonoBehaviour:
   playedCard: 0
   usedCard: 0
   id: 0
-  cardWidth: 400
-  cardHeight: 180
   typeOfSlot: 1
 --- !u!114 &925212429
 MonoBehaviour:
@@ -1788,7 +1782,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7648979638184709320, guid: 25e3064cfc90ef2489fdbcd2063299f2, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7648979638184709320, guid: 25e3064cfc90ef2489fdbcd2063299f2, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1910,7 +1904,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7648979638184709320, guid: 25e3064cfc90ef2489fdbcd2063299f2, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7648979638184709320, guid: 25e3064cfc90ef2489fdbcd2063299f2, type: 3}
       propertyPath: m_AnchorMax.x
@@ -2970,7 +2964,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7648979638184709320, guid: 25e3064cfc90ef2489fdbcd2063299f2, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7648979638184709320, guid: 25e3064cfc90ef2489fdbcd2063299f2, type: 3}
       propertyPath: m_AnchorMax.x
@@ -3188,7 +3182,7 @@ MonoBehaviour:
   enemyCardsSetter: 010000000500000008000000
   enemyCardsPositions: 000000000100000004000000
   playerMana: 50
-  roundEnded: 0
+  playerHP: 50
 --- !u!4 &1561732925
 Transform:
   m_ObjectHideFlags: 0
@@ -3292,8 +3286,6 @@ MonoBehaviour:
   playedCard: 0
   usedCard: 0
   id: 0
-  cardWidth: 400
-  cardHeight: 180
   typeOfSlot: 2
 --- !u!114 &1620333157
 MonoBehaviour:
@@ -3719,8 +3711,6 @@ MonoBehaviour:
   playedCard: 0
   usedCard: 0
   id: 0
-  cardWidth: 400
-  cardHeight: 180
   typeOfSlot: 2
 --- !u!114 &1763772958
 MonoBehaviour:
@@ -4126,9 +4116,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1128355540}
-        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
-        m_MethodName: Pause
+      - m_Target: {fileID: 1561732924}
+        m_TargetAssemblyTypeName: GameController, Assembly-CSharp
+        m_MethodName: NextRound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4830,8 +4820,6 @@ MonoBehaviour:
   playedCard: 0
   usedCard: 0
   id: 0
-  cardWidth: 400
-  cardHeight: 180
   typeOfSlot: 1
 --- !u!114 &4034153576152433219
 MonoBehaviour:
