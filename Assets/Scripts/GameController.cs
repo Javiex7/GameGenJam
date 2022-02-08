@@ -208,6 +208,16 @@ public class GameController : MonoBehaviour
             playerHP -= pointsLost;
     }  
 
+    public void Damage2Card(int attackedID)
+    {        
+        Card attacked;
+
+        if(enemyCards.TryGetValue(attackedID, out attacked))
+        {
+            attacked.ReduceHP(2);
+        }        
+    }
+
     private void ExecuteStartingCondition()
     {
         switch(rule1)
