@@ -19,16 +19,17 @@ public class DropCard : MonoBehaviour, IDropHandler
         {
             if (cd.typeOfSlot == CardDragger.slotType.CARD)
             {
-                if((!cd.usedCard) && GameController.Instance.AbleToUseMana(cd.ThisCard.CardStats.ManaCost))
+                if ((!cd.usedCard) && GameController.Instance.AbleToUseMana(cd.ThisCard.CardStats.ManaCost))
                 {
-                    if(isEnemySlot)
+                    if (isEnemySlot)
                     {
                         if (cd.playedCard == true && transform.childCount > 0)
-                        {                        
-                            GameController.Instance.PlayerAttack(cd.ID, gameObject.GetComponentInChildren<CardDragger>().ID);
+                        {
+                            GameController.Instance.PlayerAttack(cd.ID,
+                                gameObject.GetComponentInChildren<CardDragger>().ID);
                             GameController.Instance.ReduceMana(cd.ThisCard.CardStats.ManaCost);
-                            cd.usedCard = true;    
-                            GameController.Instance.roundEnded = GameController.Instance.CheckIfRoundEnded();                       
+                            cd.usedCard = true;
+                            GameController.Instance.roundEnded = GameController.Instance.CheckIfRoundEnded();
                         }
                     }
                     else
@@ -47,8 +48,8 @@ public class DropCard : MonoBehaviour, IDropHandler
 
                             cd.returnParent = this.transform;
                         }
-                    } 
-                }                               
+                    }
+                }
             }
             else if (cd.typeOfSlot == CardDragger.slotType.CONDITION || cd.typeOfSlot == CardDragger.slotType.RESULT)
             {

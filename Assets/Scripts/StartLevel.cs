@@ -63,8 +63,9 @@ public class StartLevel : MonoBehaviour
             LoadRules.r3 = sendRules[5].GetComponentInChildren<Text>().text;
 
             // Select level/puzzle (1, 2 or 3)
+            //
             selectedPuzzle = "MainScene";
-
+            //
             StartCoroutine(loadLevel(selectedPuzzle));
         } 
     }
