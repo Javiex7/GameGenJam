@@ -15,11 +15,11 @@ public class Win_Lose : MonoBehaviour
 
     void setWin()
     {
-        winUI.SetActive(false);
+        winUI.SetActive(true);
     }
 
     void setLose()
     {
-        loseUI.SetActive(false);
+        loseUI.SetActive(true);
     }
 }
