@@ -57,7 +57,7 @@ public class GameController : MonoBehaviour
     
     void Start()
     {          
-        
+        ExecuteStartingCondition();
     }
     
     void Update()
@@ -70,6 +70,7 @@ public class GameController : MonoBehaviour
                 if(pCard.CurrentHP == 0)
                 {
                     DeletePlayerCard(pCard.MyID);
+                    ExecutePlushDeathCondition();
                     break;
                 }
             }
@@ -83,6 +84,7 @@ public class GameController : MonoBehaviour
                 if(eCard.CurrentHP == 0)
                 {
                     DeleteEnemyCard(eCard.MyID);
+                    ExecutePlushDeathCondition();
                     break;
                 }
             }
@@ -101,6 +103,7 @@ public class GameController : MonoBehaviour
         if(playerCards.TryGetValue(attackerID, out attacker) && enemyCards.TryGetValue(attackedID, out attacked))
         {
             attacked.ReduceHP(attacker.CardStats.Attack);
+            ExecutePlayerAttackCondition();
         }        
     }
 
@@ -170,6 +173,7 @@ public class GameController : MonoBehaviour
                 else
                 {
                     ReducePlayerHP(eCard.ThisCard.CardStats.Attack);
+                    ExecutePlayerDamageCondition();
                 }
             }
         }
@@ -182,6 +186,7 @@ public class GameController : MonoBehaviour
         }
 
         rounds++;
+        ExecuteStartingCondition();
     }
 
     public void EnemyAttack(int attackerID, int attackedID)
@@ -201,4 +206,24 @@ public class GameController : MonoBehaviour
         else
             playerHP -= pointsLost;
     }  
+
+    private void ExecuteStartingCondition()
+    {
+        Debug.Log("Condiciones inicio turno");
+    }
+
+    private void ExecutePlushDeathCondition()
+    {
+        Debug.Log("Un peluche ha muerto");
+    }
+
+    private void ExecutePlayerAttackCondition()
+    {
+        Debug.Log("Has hecho un ataque");
+    }
+
+    private void ExecutePlayerDamageCondition()
+    {
+        Debug.Log("Te han hecho daño");
+    }
 }
