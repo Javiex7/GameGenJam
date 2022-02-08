@@ -173,7 +173,7 @@ MonoBehaviour:
     pitch: 1
     src: {fileID: 0}
   - name: Card
-    clip: {fileID: 8300000, guid: b076c24c2a61a1341b3101e1a9f86dd0, type: 3}
+    clip: {fileID: 8300000, guid: 93df8fa918830a145b7026b07acf9fcb, type: 3}
     volume: 1
     pitch: 1
     src: {fileID: 0}

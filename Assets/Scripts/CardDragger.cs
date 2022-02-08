@@ -46,6 +46,8 @@ public class CardDragger : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
     public void OnBeginDrag(PointerEventData eventData)
     {
+        FindObjectOfType<AudioManager>().playSound("Card");
+
         if (!ruleSetted)
         {
             placeHolder = new GameObject();

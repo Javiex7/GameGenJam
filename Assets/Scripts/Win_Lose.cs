@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class Win_Lose : MonoBehaviour
 {
+    public static Win_Lose instance;
     public GameObject winUI;
     public GameObject loseUI;
+
+    void Awake() {
+        instance = this;
+    }
 
     void Start()
     {
@@ -13,12 +18,12 @@ public class Win_Lose : MonoBehaviour
         loseUI.SetActive(false);
     }
 
-    void setWin()
+    public void setWin()
     {
         winUI.SetActive(true);
     }
 
-    void setLose()
+    public void setLose()
     {
         loseUI.SetActive(true);
     }

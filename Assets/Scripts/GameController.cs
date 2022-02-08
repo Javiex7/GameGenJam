@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -60,11 +62,12 @@ public class GameController : MonoBehaviour
             nCD.ID = cID;
             nCD.ThisCard = nCard;          
             i++;
-        }
+        }        
     }
     
     void Start()
     {          
+        UICard.instance.SetEnemyUI();
         attackEnemyUI.SetActive(false);
         cloneCardUI.SetActive(false); 
         StartCoroutine("FirstFrame");       
@@ -104,7 +107,11 @@ public class GameController : MonoBehaviour
                     break;
                 }
             }
-        }                   
+        } 
+
+        CheckRoundsEnded();  
+        CheckNumberPlayerCards();  
+        CheckVictory();              
     }
 
     public void DropCard(int cardID, Card card)
@@ -119,6 +126,7 @@ public class GameController : MonoBehaviour
         if(playerCards.TryGetValue(attackerID, out attacker) && enemyCards.TryGetValue(attackedID, out attacked))
         {
             attacked.ReduceHP(attacker.CardStats.Attack);
+            UICard.instance.SetEnemyHPUI();
             ExecutePlayerAttackCondition();
         }        
     }
@@ -212,6 +220,7 @@ public class GameController : MonoBehaviour
         if(enemyCards.TryGetValue(attackerID, out attacker) && playerCards.TryGetValue(attackedID, out attacked))
         {
             attacked.ReduceHP(attacker.CardStats.Attack);
+            UICard.instance.SetPlayerHPUI();
         }        
     }  
 
@@ -230,6 +239,7 @@ public class GameController : MonoBehaviour
         if(enemyCards.TryGetValue(attackedID, out attacked))
         {
             attacked.ReduceHP(2);
+            UICard.instance.SetEnemyHPUI();
         }        
     }
 
@@ -306,7 +316,10 @@ public class GameController : MonoBehaviour
         Card nCard = new Card(Card.CardTypes.Conejo, cID);
 
         playerCards.Add(cID, nCard);
-        GameObject newCard = Instantiate(cardPrefab, Vector3.zero, Quaternion.identity, playerZones[pos]) as GameObject;   
+        GameObject newCard = Instantiate(cardPrefab, Vector3.zero, Quaternion.identity, playerZones[pos]) as GameObject; 
+
+        newCard.GetComponent<Image>().sprite = UICard.instance.Conejo;  
+
         newCard.transform.GetComponent<RectTransform>().sizeDelta = new Vector2(205, 270);  
         CardDragger nCD = newCard.GetComponent<CardDragger>();
         nCD.playedCard = true;
@@ -335,6 +348,8 @@ public class GameController : MonoBehaviour
             card.CurrentHP = card.CardStats.Attack;
             card.CardStats.Attack = hp;
         }
+
+        UICard.instance.SetAttackHPUI();
     }
 
     public void Damage1AllCard()
@@ -345,7 +360,10 @@ public class GameController : MonoBehaviour
 
         foreach(Card card in enemyCards.Values){
             card.CurrentHP--;
-        }        
+        } 
+
+        UICard.instance.SetEnemyHPUI();
+        UICard.instance.SetPlayerHPUI();       
     }
 
     private void ExecuteStartingCondition()
@@ -825,6 +843,76 @@ public class GameController : MonoBehaviour
 
             default:
             break;
+        }
+    }
+
+    public void CheckRoundsEnded()
+    {
+        string nameS = SceneManager.GetActiveScene().name;
+        if(nameS.Equals("Level1"))
+        {
+            if(rounds >= 2)
+            {
+                Win_Lose.instance.setLose();
+            }
+        }
+        else if(nameS.Equals("Level2"))
+        {
+            if(rounds >= 1)
+            {
+                Win_Lose.instance.setLose();
+            }
+        }
+    }
+
+    public void CheckNumberPlayerCards()
+    {
+        if(playerCards.Count == 0 && hand.GetComponent<PlayerHand>().playerHand.Count == 0){
+            Win_Lose.instance.setLose();
+        }
+    }
+
+    public void CheckVictory()
+    {
+        string nameS = SceneManager.GetActiveScene().name;
+        if(nameS.Equals("Level1"))
+        {
+            if(enemyZones[3].gameObject.GetComponentInChildren<CardDragger>() == null)
+            {
+                Win_Lose.instance.setWin();
+            }
+        }
+        else if(nameS.Equals("Level2"))
+        {
+            bool noOne = true;
+
+            foreach(Transform t in enemyZones)
+            {
+                if(t.gameObject.GetComponentInChildren<CardDragger>() != null)
+                {
+                    noOne = false;
+                }
+            }
+
+            foreach(Transform t in playerZones)
+            {
+                if(t.gameObject.GetComponentInChildren<CardDragger>() != null)
+                {
+                    noOne = false;
+                }
+            }
+
+            if(noOne)
+            {
+                Win_Lose.instance.setWin();
+            }
+        }
+        else if(nameS.Equals("Level3"))
+        {
+            if(rounds >= 2)
+            {
+                Win_Lose.instance.setWin();
+            }
         }
     }
 }
