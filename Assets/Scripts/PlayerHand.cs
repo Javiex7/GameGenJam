@@ -9,9 +9,9 @@ public class PlayerHand : MonoBehaviour
     public List<Card.CardTypes> handCreator;
     public GameObject cardPrefab;
 
-    private int lastID;
+    public int lastID;
     
-    private Dictionary<int, Card> playerHand;
+    public Dictionary<int, Card> playerHand;
 
     void Awake()
     {        
