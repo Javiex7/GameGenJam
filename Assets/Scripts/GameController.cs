@@ -14,6 +14,7 @@ public class GameController : MonoBehaviour
     public GameObject enemyZone, playerZone;
     public Transform[] enemyZones;
     public Transform[] playerZones;
+    public int rule1, rule2, rule3;
 
     private Dictionary<int, Card> playerCards;
     private Dictionary<int, Card> enemyCards;
@@ -209,21 +210,406 @@ public class GameController : MonoBehaviour
 
     private void ExecuteStartingCondition()
     {
-        Debug.Log("Condiciones inicio turno");
+        switch(rule1)
+        {
+            case 0:
+                //Un peluche recibe 2 de daño
+            return;
+
+            case 1:
+                //Spawnea un conejo 1/1
+            return;
+
+            case 2:
+                //Intercambia ataque y vida
+            return;
+
+            case 3:
+                //Todos los peluches reciben 1 de daño
+            return;
+
+            case 4:
+                //Crear copia peluche
+            return;
+
+            default:
+            break;
+        }
+
+        switch(rule2)
+        {
+            case 0:
+                //Un peluche recibe 2 de daño
+            return;
+
+            case 1:
+                //Spawnea un conejo 1/1
+            return;
+
+            case 2:
+                //Intercambia ataque y vida
+            return;
+
+            case 3:
+                //Todos los peluches reciben 1 de daño
+            return;
+
+            case 4:
+                //Crear copia peluche
+            return;
+
+            default:
+            break;
+        }
+
+        switch(rule3)
+        {
+            case 0:
+                //Un peluche recibe 2 de daño
+            return;
+
+            case 1:
+                //Spawnea un conejo 1/1
+            return;
+
+            case 2:
+                //Intercambia ataque y vida
+            return;
+
+            case 3:
+                //Todos los peluches reciben 1 de daño
+            return;
+
+            case 4:
+                //Crear copia peluche
+            return;
+
+            default:
+            break;
+        }
+    }
+
+    private void ExecuteCardPlayedCondition()
+    {
+        switch(rule1)
+        {
+            case 10:
+                //Un peluche recibe 2 de daño
+            return;
+
+            case 11:
+                //Spawnea un conejo 1/1
+            return;
+
+            case 12:
+                //Intercambia ataque y vida
+            return;
+
+            case 13:
+                //Todos los peluches reciben 1 de daño
+            return;
+
+            case 14:
+                //Crear copia peluche
+            return;
+
+            default:
+            break;
+        }
+
+        switch(rule2)
+        {
+            case 10:
+                //Un peluche recibe 2 de daño
+            return;
+
+            case 11:
+                //Spawnea un conejo 1/1
+            return;
+
+            case 12:
+                //Intercambia ataque y vida
+            return;
+
+            case 13:
+                //Todos los peluches reciben 1 de daño
+            return;
+
+            case 14:
+                //Crear copia peluche
+            return;
+
+            default:
+            break;
+        }
+
+        switch(rule3)
+        {
+            case 10:
+                //Un peluche recibe 2 de daño
+            return;
+
+            case 11:
+                //Spawnea un conejo 1/1
+            return;
+
+            case 12:
+                //Intercambia ataque y vida
+            return;
+
+            case 13:
+                //Todos los peluches reciben 1 de daño
+            return;
+
+            case 14:
+                //Crear copia peluche
+            return;
+
+            default:
+            break;
+        }
     }
 
     private void ExecutePlushDeathCondition()
     {
-        Debug.Log("Un peluche ha muerto");
+        switch(rule1)
+        {
+            case 20:
+                //Un peluche recibe 2 de daño
+            return;
+
+            case 21:
+                //Spawnea un conejo 1/1
+            return;
+
+            case 22:
+                //Intercambia ataque y vida
+            return;
+
+            case 23:
+                //Todos los peluches reciben 1 de daño
+            return;
+
+            case 24:
+                //Crear copia peluche
+            return;
+
+            default:
+            break;
+        }
+
+        switch(rule2)
+        {
+            case 20:
+                //Un peluche recibe 2 de daño
+            return;
+
+            case 21:
+                //Spawnea un conejo 1/1
+            return;
+
+            case 22:
+                //Intercambia ataque y vida
+            return;
+
+            case 23:
+                //Todos los peluches reciben 1 de daño
+            return;
+
+            case 24:
+                //Crear copia peluche
+            return;
+
+            default:
+            break;
+        }
+
+        switch(rule3)
+        {
+            case 20:
+                //Un peluche recibe 2 de daño
+            return;
+
+            case 21:
+                //Spawnea un conejo 1/1
+            return;
+
+            case 22:
+                //Intercambia ataque y vida
+            return;
+
+            case 23:
+                //Todos los peluches reciben 1 de daño
+            return;
+
+            case 24:
+                //Crear copia peluche
+            return;
+
+            default:
+            break;
+        }
     }
 
     private void ExecutePlayerAttackCondition()
     {
-        Debug.Log("Has hecho un ataque");
+        switch(rule1)
+        {
+            case 30:
+                //Un peluche recibe 2 de daño
+            return;
+
+            case 31:
+                //Spawnea un conejo 1/1
+            return;
+
+            case 32:
+                //Intercambia ataque y vida
+            return;
+
+            case 33:
+                //Todos los peluches reciben 1 de daño
+            return;
+
+            case 34:
+                //Crear copia peluche
+            return;
+
+            default:
+            break;
+        }
+
+        switch(rule2)
+        {
+            case 30:
+                //Un peluche recibe 2 de daño
+            return;
+
+            case 31:
+                //Spawnea un conejo 1/1
+            return;
+
+            case 32:
+                //Intercambia ataque y vida
+            return;
+
+            case 33:
+                //Todos los peluches reciben 1 de daño
+            return;
+
+            case 34:
+                //Crear copia peluche
+            return;
+
+            default:
+            break;
+        }
+
+        switch(rule3)
+        {
+            case 30:
+                //Un peluche recibe 2 de daño
+            return;
+
+            case 31:
+                //Spawnea un conejo 1/1
+            return;
+
+            case 32:
+                //Intercambia ataque y vida
+            return;
+
+            case 33:
+                //Todos los peluches reciben 1 de daño
+            return;
+
+            case 34:
+                //Crear copia peluche
+            return;
+
+            default:
+            break;
+        }
     }
 
     private void ExecutePlayerDamageCondition()
-    {
-        Debug.Log("Te han hecho daño");
+    {        
+        switch(rule1)
+        {
+            case 40:
+                //Un peluche recibe 2 de daño
+            return;
+
+            case 41:
+                //Spawnea un conejo 1/1
+            return;
+
+            case 42:
+                //Intercambia ataque y vida
+            return;
+
+            case 43:
+                //Todos los peluches reciben 1 de daño
+            return;
+
+            case 44:
+                //Crear copia peluche
+            return;
+
+            default:
+            break;
+        }
+
+        switch(rule2)
+        {
+            case 40:
+                //Un peluche recibe 2 de daño
+            return;
+
+            case 41:
+                //Spawnea un conejo 1/1
+            return;
+
+            case 42:
+                //Intercambia ataque y vida
+            return;
+
+            case 43:
+                //Todos los peluches reciben 1 de daño
+            return;
+
+            case 44:
+                //Crear copia peluche
+            return;
+
+            default:
+            break;
+        }
+
+        switch(rule3)
+        {
+            case 40:
+                //Un peluche recibe 2 de daño
+            return;
+
+            case 41:
+                //Spawnea un conejo 1/1
+            return;
+
+            case 42:
+                //Intercambia ataque y vida
+            return;
+
+            case 43:
+                //Todos los peluches reciben 1 de daño
+            return;
+
+            case 44:
+                //Crear copia peluche
+            return;
+
+            default:
+            break;
+        }
     }
 }
