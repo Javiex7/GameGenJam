@@ -22,15 +22,15 @@ public class GameController : MonoBehaviour
     public List<int> enemyCardsPositions;   
 
     public int playerMana;
+    public int playerHP;
     private int rounds;
-    public bool roundEnded;
+
 
     void Awake()
     {
         instance = this;
 
         rounds = 0;
-        roundEnded = false;
 
         playerCards = new Dictionary<int, Card>();
         enemyCards = new Dictionary<int, Card>();
@@ -46,7 +46,7 @@ public class GameController : MonoBehaviour
             Card nCard = new Card(card, cID);
             enemyCards.Add(cID, nCard);
             GameObject newCard = Instantiate(cardPrefab, Vector3.zero, Quaternion.identity, enemyZones[cID]) as GameObject;   
-            newCard.transform.LeanScale(new Vector2(1.3f, 1.3f), 0.15f);  
+            newCard.transform.GetComponent<RectTransform>().sizeDelta = new Vector2(205, 270);  
             CardDragger nCD = newCard.GetComponent<CardDragger>();
             nCD.RuleSetted = true;
             nCD.ID = cID;
@@ -86,22 +86,7 @@ public class GameController : MonoBehaviour
                     break;
                 }
             }
-        }   
-        
-        if(roundEnded)
-        {
-            //ATACAN ENEMIGOS
-
-            foreach(Transform t in playerZones)
-            {
-                CardDragger card = t.gameObject.GetComponentInChildren<CardDragger>();
-                if(card != null)
-                    card.usedCard = false;
-            }
-
-            rounds++;
-            roundEnded = false;
-        }        
+        }                   
     }
 
     public void DropCard(int cardID, Card card)
@@ -158,27 +143,62 @@ public class GameController : MonoBehaviour
             return false;
         else 
             return true;
-    }
+    }    
 
-    public bool CheckIfRoundEnded()
+    public void NextRound()
     {
-        int nullChilds = 0;
+
         foreach(Transform t in playerZones)
         {
             CardDragger card = t.gameObject.GetComponentInChildren<CardDragger>();
-            if(card != null && card.usedCard == false)
+            if(card != null)
+                card.usedCard = true;
+        }
+        
+        //Enemies attack
+        for(int i = 1; i < playerZones.Length; i++)
+        {
+            CardDragger eCard = enemyZones[i].gameObject.GetComponentInChildren<CardDragger>();
+            CardDragger pCard = playerZones[i].gameObject.GetComponentInChildren<CardDragger>();
+
+            if(eCard != null)
             {
-                return false;
-            } 
-            else if(card == null)
-            {
-                nullChilds++;
+                if(pCard != null)
+                {
+                    EnemyAttack(eCard.ID, pCard.ID);
+                }
+                else
+                {
+                    ReducePlayerHP(eCard.ThisCard.CardStats.Attack);
+                }
             }
         }
 
-        if(nullChilds == 6)
-            return false; 
-        else
-            return true;
+        foreach(Transform t in playerZones)
+        {
+            CardDragger card = t.gameObject.GetComponentInChildren<CardDragger>();
+            if(card != null)
+                card.usedCard = false;
+        }
+
+        rounds++;
     }
+
+    public void EnemyAttack(int attackerID, int attackedID)
+    {        
+        Card attacker, attacked;
+
+        if(enemyCards.TryGetValue(attackerID, out attacker) && playerCards.TryGetValue(attackedID, out attacked))
+        {
+            attacked.ReduceHP(attacker.CardStats.Attack);
+        }        
+    }  
+
+    public void ReducePlayerHP(int pointsLost){
+
+        if(playerHP == 0 || playerHP <= pointsLost)
+            playerHP = 0;
+        else
+            playerHP -= pointsLost;
+    }  
 }
