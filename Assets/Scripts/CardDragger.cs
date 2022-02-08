@@ -116,7 +116,6 @@ public class CardDragger : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
             this.transform.LeanScale(Vector2.one, 0.15f);
 
-
             if (typeOfSlot == slotType.CARD && this.playedCard)
             {
                 this.transform.GetComponent<RectTransform>().sizeDelta = new Vector2(205, 270);
