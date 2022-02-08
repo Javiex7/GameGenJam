@@ -833,9 +833,7 @@ MonoBehaviour:
   returnParent: {fileID: 0}
   playedCard: 0
   usedCard: 0
-  id: 0
-  cardWidth: 400
-  cardHeight: 180
+  id: 3
   typeOfSlot: 2
 --- !u!114 &334617369
 MonoBehaviour:
@@ -1948,9 +1946,7 @@ MonoBehaviour:
   returnParent: {fileID: 0}
   playedCard: 0
   usedCard: 0
-  id: 0
-  cardWidth: 400
-  cardHeight: 180
+  id: 1
   typeOfSlot: 2
 --- !u!114 &907775819
 MonoBehaviour:
@@ -2083,9 +2079,7 @@ MonoBehaviour:
   returnParent: {fileID: 0}
   playedCard: 0
   usedCard: 0
-  id: 0
-  cardWidth: 400
-  cardHeight: 180
+  id: 4
   typeOfSlot: 2
 --- !u!114 &922507198
 MonoBehaviour:
@@ -2194,8 +2188,6 @@ MonoBehaviour:
   playedCard: 0
   usedCard: 0
   id: 0
-  cardWidth: 400
-  cardHeight: 180
   typeOfSlot: 2
 --- !u!114 &950614373
 MonoBehaviour:
@@ -2813,6 +2805,10 @@ PrefabInstance:
       value: C1 (3)
       objectReference: {fileID: 0}
     - target: {fileID: 7571878634493549862, guid: b1e695ccc93a3e940b6e98194fe8745d, type: 3}
+      propertyPath: id
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7571878634493549862, guid: b1e695ccc93a3e940b6e98194fe8745d, type: 3}
       propertyPath: cardWidth
       value: 400
       objectReference: {fileID: 0}
@@ -3183,9 +3179,7 @@ MonoBehaviour:
   returnParent: {fileID: 0}
   playedCard: 0
   usedCard: 0
-  id: 0
-  cardWidth: 400
-  cardHeight: 180
+  id: 2
   typeOfSlot: 2
 --- !u!114 &1672633053
 MonoBehaviour:
@@ -3537,6 +3531,10 @@ PrefabInstance:
       value: C1 (1)
       objectReference: {fileID: 0}
     - target: {fileID: 7571878634493549862, guid: b1e695ccc93a3e940b6e98194fe8745d, type: 3}
+      propertyPath: id
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7571878634493549862, guid: b1e695ccc93a3e940b6e98194fe8745d, type: 3}
       propertyPath: cardWidth
       value: 400
       objectReference: {fileID: 0}
@@ -3809,6 +3807,10 @@ PrefabInstance:
     - target: {fileID: 5986230173522937921, guid: b1e695ccc93a3e940b6e98194fe8745d, type: 3}
       propertyPath: m_Name
       value: C1 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7571878634493549862, guid: b1e695ccc93a3e940b6e98194fe8745d, type: 3}
+      propertyPath: id
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7571878634493549862, guid: b1e695ccc93a3e940b6e98194fe8745d, type: 3}
       propertyPath: cardWidth
@@ -4233,6 +4235,10 @@ PrefabInstance:
     - target: {fileID: 5986230173522937921, guid: b1e695ccc93a3e940b6e98194fe8745d, type: 3}
       propertyPath: m_Name
       value: C1 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7571878634493549862, guid: b1e695ccc93a3e940b6e98194fe8745d, type: 3}
+      propertyPath: id
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7571878634493549862, guid: b1e695ccc93a3e940b6e98194fe8745d, type: 3}
       propertyPath: cardWidth

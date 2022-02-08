@@ -56,11 +56,17 @@ public class StartLevel : MonoBehaviour
         if (c == true)
         {
             LoadRules.c1 = sendRules[0].GetComponentInChildren<Text>().text;
+            LoadRules.c1ID = sendRules[0].ID;
             LoadRules.c2 = sendRules[1].GetComponentInChildren<Text>().text;
+            LoadRules.c2ID = sendRules[1].ID;
             LoadRules.c3 = sendRules[2].GetComponentInChildren<Text>().text;
+            LoadRules.c3ID = sendRules[2].ID;
             LoadRules.r1 = sendRules[3].GetComponentInChildren<Text>().text;
+            LoadRules.r1ID = sendRules[3].ID;
             LoadRules.r2 = sendRules[4].GetComponentInChildren<Text>().text;
+            LoadRules.r2ID = sendRules[4].ID;
             LoadRules.r3 = sendRules[5].GetComponentInChildren<Text>().text;
+            LoadRules.r3ID = sendRules[5].ID;
 
             // Select level/puzzle (1, 2 or 3)
             selectedPuzzle = "MainScene";
