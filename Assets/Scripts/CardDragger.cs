@@ -32,7 +32,7 @@ public class CardDragger : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
     public slotType typeOfSlot;
 
-    private Vector2 scale = new Vector2(1.45f, 1.45f);
+    private Vector2 scale;
     private GameObject placeHolder = null;
 
     private bool
@@ -62,6 +62,14 @@ public class CardDragger : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
             this.transform.SetParent(this.transform.parent.parent);
             GetComponent<CanvasGroup>().blocksRaycasts = false;
 
+            if (typeOfSlot == slotType.CARD && !playedCard)
+            {
+                scale = new Vector2(2.5f, 2.5f);
+            }
+            else
+            {
+                scale = new Vector2(1.6f, 1.6f);
+            }
             this.transform.LeanScale(scale, 0.15f);
         }
     }
@@ -107,7 +115,12 @@ public class CardDragger : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
             GetComponent<CanvasGroup>().blocksRaycasts = true;
 
             this.transform.LeanScale(Vector2.one, 0.15f);
-            this.transform.GetComponent<RectTransform>().sizeDelta = new Vector2(205, 270);
+
+
+            if (typeOfSlot == slotType.CARD && this.playedCard)
+            {
+                this.transform.GetComponent<RectTransform>().sizeDelta = new Vector2(205, 270);
+            }
         }
     }
 }
