@@ -15,6 +15,6 @@ public class CardStats
 
     public string Name { get {return name;} }
     public int HP { get {return hp;} }
-    public int Attack { get {return attack;} }
+    public int Attack { get {return attack;} set { attack = value; } }
     public int ManaCost { get {return manaCost;} }
 }

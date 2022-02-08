@@ -66,8 +66,13 @@ public class GameController : MonoBehaviour
     void Start()
     {          
         attackEnemyUI.SetActive(false);
-        cloneCardUI.SetActive(false);
+        cloneCardUI.SetActive(false); 
+        StartCoroutine("FirstFrame");       
+    }
 
+    IEnumerator FirstFrame()
+    {
+        yield return new WaitForSeconds(0.25f);
         ExecuteStartingCondition();
     }
     
@@ -252,30 +257,95 @@ public class GameController : MonoBehaviour
                     selectCard = false;
                 }
             }
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.25f);
         }
         attackEnemyUI.SetActive(false);
     }
 
     IEnumerator SelectMyCard()
     {
-        cloneCardUI.SetActive(true);
-        lastCardClicked = null;
-        selectCard = true;
-        while(selectCard)
+        if(playerCards.Count != 0)
         {
-            if(lastCardClicked != null)
+            cloneCardUI.SetActive(true);
+            lastCardClicked = null;
+            selectCard = true;
+            while(selectCard)
             {
-                CardDragger card = lastCardClicked.GetComponentInChildren<CardDragger>();
-                if(card != null)
+                if(lastCardClicked != null)
                 {
-                    hand.GetComponent<PlayerHand>().AddCard(card.gameObject, card.ThisCard.myType);
-                    selectCard = false;
+                    CardDragger card = lastCardClicked.GetComponentInChildren<CardDragger>();
+                    if(card != null)
+                    {
+                        hand.GetComponent<PlayerHand>().AddCard(card.gameObject, card.ThisCard.myType);
+                        selectCard = false;
+                    }
                 }
+                yield return new WaitForSeconds(0.25f);
             }
-            yield return new WaitForSeconds(0.5f);
+            cloneCardUI.SetActive(false);
+        }        
+    }
+
+    IEnumerator SpawnRabbit()
+    {
+        CardDragger card = null;
+        int pos = 0;        
+        yield return new WaitForSeconds(0.25f);
+        for(int i = 1; i < playerZones.Length; i++)
+        {
+            card = playerZones[i].gameObject.GetComponentInChildren<CardDragger>();
+
+            if(card == null)
+            { 
+                pos = i;      
+                i = playerZones.Length;
+            }
+        }   
+
+        int cID = hand.GetComponent<PlayerHand>().lastID;
+        Card nCard = new Card(Card.CardTypes.Conejo, cID);
+
+        playerCards.Add(cID, nCard);
+        GameObject newCard = Instantiate(cardPrefab, Vector3.zero, Quaternion.identity, playerZones[pos]) as GameObject;   
+        newCard.transform.GetComponent<RectTransform>().sizeDelta = new Vector2(205, 270);  
+        CardDragger nCD = newCard.GetComponent<CardDragger>();
+        nCD.playedCard = true;
+        nCD.ID = cID;
+        nCD.ThisCard = nCard;
+
+        hand.GetComponent<PlayerHand>().lastID++;        
+    }
+
+    private void ExchangeAttackHP()
+    {
+        foreach(Card card in playerCards.Values){
+            int hp = card.CurrentHP;
+            card.CurrentHP = card.CardStats.Attack;
+            card.CardStats.Attack = hp;
         }
-        cloneCardUI.SetActive(false);
+
+        foreach(Card card in enemyCards.Values){
+            int hp = card.CurrentHP;
+            card.CurrentHP = card.CardStats.Attack;
+            card.CardStats.Attack = hp;
+        }
+
+        foreach(Card card in playerHand.playerHand.Values){
+            int hp = card.CurrentHP;
+            card.CurrentHP = card.CardStats.Attack;
+            card.CardStats.Attack = hp;
+        }
+    }
+
+    public void Damage1AllCard()
+    {        
+        foreach(Card card in playerCards.Values){
+            card.CurrentHP--;
+        }
+
+        foreach(Card card in enemyCards.Values){
+            card.CurrentHP--;
+        }        
     }
 
     private void ExecuteStartingCondition()
@@ -289,14 +359,17 @@ public class GameController : MonoBehaviour
 
             case 1:
                 //Spawnea un conejo 1/1
+                StartCoroutine("SpawnRabbit");
             return;
 
             case 2:
                 //Intercambia ataque y vida
+                ExchangeAttackHP();
             return;
 
             case 3:
                 //Todos los peluches reciben 1 de daño
+                Damage1AllCard();
             return;
 
             case 4:
@@ -317,14 +390,17 @@ public class GameController : MonoBehaviour
 
             case 1:
                 //Spawnea un conejo 1/1
+                StartCoroutine("SpawnRabbit");
             return;
 
             case 2:
                 //Intercambia ataque y vida
+                ExchangeAttackHP();
             return;
 
             case 3:
                 //Todos los peluches reciben 1 de daño
+                Damage1AllCard();
             return;
 
             case 4:
@@ -345,14 +421,17 @@ public class GameController : MonoBehaviour
 
             case 1:
                 //Spawnea un conejo 1/1
+                StartCoroutine("SpawnRabbit");
             return;
 
             case 2:
                 //Intercambia ataque y vida
+                ExchangeAttackHP();
             return;
 
             case 3:
                 //Todos los peluches reciben 1 de daño
+                Damage1AllCard();
             return;
 
             case 4:
@@ -376,14 +455,17 @@ public class GameController : MonoBehaviour
 
             case 11:
                 //Spawnea un conejo 1/1
+                StartCoroutine("SpawnRabbit");
             return;
 
             case 12:
                 //Intercambia ataque y vida
+                ExchangeAttackHP();
             return;
 
             case 13:
                 //Todos los peluches reciben 1 de daño
+                Damage1AllCard();
             return;
 
             case 14:
@@ -404,14 +486,17 @@ public class GameController : MonoBehaviour
 
             case 11:
                 //Spawnea un conejo 1/1
+                StartCoroutine("SpawnRabbit");
             return;
 
             case 12:
                 //Intercambia ataque y vida
+                ExchangeAttackHP();
             return;
 
             case 13:
                 //Todos los peluches reciben 1 de daño
+                Damage1AllCard();
             return;
 
             case 14:
@@ -432,14 +517,17 @@ public class GameController : MonoBehaviour
 
             case 11:
                 //Spawnea un conejo 1/1
+                StartCoroutine("SpawnRabbit");
             return;
 
             case 12:
                 //Intercambia ataque y vida
+                ExchangeAttackHP();
             return;
 
             case 13:
                 //Todos los peluches reciben 1 de daño
+                Damage1AllCard();
             return;
 
             case 14:
@@ -463,14 +551,17 @@ public class GameController : MonoBehaviour
 
             case 21:
                 //Spawnea un conejo 1/1
+                StartCoroutine("SpawnRabbit");
             return;
 
             case 22:
                 //Intercambia ataque y vida
+                ExchangeAttackHP();
             return;
 
             case 23:
                 //Todos los peluches reciben 1 de daño
+                Damage1AllCard();
             return;
 
             case 24:
@@ -491,14 +582,17 @@ public class GameController : MonoBehaviour
 
             case 21:
                 //Spawnea un conejo 1/1
+                StartCoroutine("SpawnRabbit");
             return;
 
             case 22:
                 //Intercambia ataque y vida
+                ExchangeAttackHP();
             return;
 
             case 23:
                 //Todos los peluches reciben 1 de daño
+                Damage1AllCard();
             return;
 
             case 24:
@@ -519,14 +613,17 @@ public class GameController : MonoBehaviour
 
             case 21:
                 //Spawnea un conejo 1/1
+                StartCoroutine("SpawnRabbit");
             return;
 
             case 22:
                 //Intercambia ataque y vida
+                ExchangeAttackHP();
             return;
 
             case 23:
                 //Todos los peluches reciben 1 de daño
+                Damage1AllCard();
             return;
 
             case 24:
@@ -550,14 +647,17 @@ public class GameController : MonoBehaviour
 
             case 31:
                 //Spawnea un conejo 1/1
+                StartCoroutine("SpawnRabbit");
             return;
 
             case 32:
                 //Intercambia ataque y vida
+                ExchangeAttackHP();
             return;
 
             case 33:
                 //Todos los peluches reciben 1 de daño
+                Damage1AllCard();
             return;
 
             case 34:
@@ -578,14 +678,17 @@ public class GameController : MonoBehaviour
 
             case 31:
                 //Spawnea un conejo 1/1
+                StartCoroutine("SpawnRabbit");
             return;
 
             case 32:
                 //Intercambia ataque y vida
+                ExchangeAttackHP();
             return;
 
             case 33:
                 //Todos los peluches reciben 1 de daño
+                Damage1AllCard();
             return;
 
             case 34:
@@ -606,14 +709,17 @@ public class GameController : MonoBehaviour
 
             case 31:
                 //Spawnea un conejo 1/1
+                StartCoroutine("SpawnRabbit");
             return;
 
             case 32:
                 //Intercambia ataque y vida
+                ExchangeAttackHP();
             return;
 
             case 33:
                 //Todos los peluches reciben 1 de daño
+                Damage1AllCard();
             return;
 
             case 34:
@@ -637,14 +743,17 @@ public class GameController : MonoBehaviour
 
             case 41:
                 //Spawnea un conejo 1/1
+                StartCoroutine("SpawnRabbit");
             return;
 
             case 42:
                 //Intercambia ataque y vida
+                ExchangeAttackHP();
             return;
 
             case 43:
                 //Todos los peluches reciben 1 de daño
+                Damage1AllCard();
             return;
 
             case 44:
@@ -665,14 +774,17 @@ public class GameController : MonoBehaviour
 
             case 41:
                 //Spawnea un conejo 1/1
+                StartCoroutine("SpawnRabbit");
             return;
 
             case 42:
                 //Intercambia ataque y vida
+                ExchangeAttackHP();
             return;
 
             case 43:
                 //Todos los peluches reciben 1 de daño
+                Damage1AllCard();
             return;
 
             case 44:
@@ -693,14 +805,17 @@ public class GameController : MonoBehaviour
 
             case 41:
                 //Spawnea un conejo 1/1
+                StartCoroutine("SpawnRabbit");
             return;
 
             case 42:
                 //Intercambia ataque y vida
+                ExchangeAttackHP();
             return;
 
             case 43:
                 //Todos los peluches reciben 1 de daño
+                Damage1AllCard();
             return;
 
             case 44:

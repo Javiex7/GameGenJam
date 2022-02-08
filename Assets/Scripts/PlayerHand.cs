@@ -9,9 +9,9 @@ public class PlayerHand : MonoBehaviour
     public List<Card.CardTypes> handCreator;
     public GameObject cardPrefab;
 
-    private int lastID;
+    public int lastID;
     
-    private Dictionary<int, Card> playerHand;
+    public Dictionary<int, Card> playerHand;
 
     void Awake()
     {        
@@ -53,14 +53,17 @@ public class PlayerHand : MonoBehaviour
 
     public void AddCard(GameObject card, Card.CardTypes type)
     {
-        Card nCard = new Card(type, lastID);
-        playerHand.Add(lastID, nCard);
-        GameObject newCard = Instantiate(card, Vector3.zero, Quaternion.identity, gameObject.transform) as GameObject;
-        newCard.transform.GetComponent<RectTransform>().sizeDelta = new Vector2(144.26f, 190);
-        CardDragger nCD = newCard.GetComponent<CardDragger>();
-        nCD.RuleSetted = false;
-        nCD.ID = lastID;
-        nCD.ThisCard = nCard;
-        lastID++;
+        if(gameObject.GetComponentsInChildren<Transform>().Length < 9)
+        {
+            Card nCard = new Card(type, lastID);
+            playerHand.Add(lastID, nCard);
+            GameObject newCard = Instantiate(card, Vector3.zero, Quaternion.identity, gameObject.transform) as GameObject;
+            newCard.transform.GetComponent<RectTransform>().sizeDelta = new Vector2(144.26f, 190);
+            CardDragger nCD = newCard.GetComponent<CardDragger>();
+            nCD.RuleSetted = false;
+            nCD.ID = lastID;
+            nCD.ThisCard = nCard;
+            lastID++;
+        }        
     }
 }
