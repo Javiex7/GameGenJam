@@ -574,6 +574,67 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 88016532}
   m_CullTransparentMesh: 1
+--- !u!1 &107976283
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 107976284}
+  - component: {fileID: 107976285}
+  m_Layer: 0
+  m_Name: UICardsSetter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &107976284
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 107976283}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &107976285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 107976283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d76d045a15549dc49bd5007815a08dd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyZone: {fileID: 896836248}
+  playerZone: {fileID: 748236972}
+  pHand: {fileID: 1814751550}
+  enemyZones: []
+  playerZones: []
+  handCards: []
+  Elefante: {fileID: 21300000, guid: aca8e434425d9434fa2b57e0e4e527c6, type: 3}
+  Tortuga: {fileID: 21300000, guid: cadcf8fd9c7c4a64ab068e3a9fb31999, type: 3}
+  Raton: {fileID: 21300000, guid: b4d2e3603ccb0534fb52ec81aa3113ae, type: 3}
+  Tigre: {fileID: 21300000, guid: cc463b45a6927f74e85f85a35829ad58, type: 3}
+  Conejo: {fileID: 21300000, guid: 5f745e0b07cf41243b58eb066ae864a3, type: 3}
+  Abeja: {fileID: 21300000, guid: 25908ce74cc56534082ac50e49daa54d, type: 3}
+  Oso: {fileID: 21300000, guid: 08c8377926749564da3f7b3259850a9d, type: 3}
+  Serpiente: {fileID: 21300000, guid: ee0e3f622c9b86d438af63bca45bb062, type: 3}
+  Cocodrilo: {fileID: 21300000, guid: 595dc69e13ba5de4cb068a572ed8362b, type: 3}
+  Cangrejo: {fileID: 21300000, guid: 6a123716fd72f0c45a5c275fa47b878d, type: 3}
+  Tiburon: {fileID: 21300000, guid: 57a739593e8eec0498c8c3d66f98e61d, type: 3}
+  Pulpo: {fileID: 21300000, guid: 1150a688db5f06449b7a2782d4d9a0d6, type: 3}
 --- !u!1 &172671042
 GameObject:
   m_ObjectHideFlags: 0
@@ -3076,7 +3137,7 @@ RectTransform:
   - {fileID: 1503087113}
   - {fileID: 576524233}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3192,7 +3253,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1231594384
 GameObject:
@@ -4500,7 +4561,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1620333152
 GameObject:
@@ -5089,7 +5150,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1744032311
 MonoBehaviour:
@@ -5638,6 +5699,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   handCreator: 0200000001000000050000000500000005000000050000000500000005000000
   cardPrefab: {fileID: 8543104390605002332, guid: 5730e36148b0178479f5fc97ded061d0, type: 3}
+  lastID: 0
 --- !u!1 &1895358611
 GameObject:
   m_ObjectHideFlags: 0
@@ -6359,7 +6421,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1144145170341220148
 GameObject:

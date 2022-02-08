@@ -29,13 +29,19 @@ public class PlayerHand : MonoBehaviour
             nCD.ID = i;
             nCD.ThisCard = nCard;
             i++;
-        }
+        }        
         lastID = i;
     }
 
     void Start()
     {
+        StartCoroutine("SetUI");
+    }
 
+    IEnumerator SetUI()
+    {
+        yield return new WaitForSeconds(0.5f);
+        UICard.instance.SetHandUI();
     }
 
     void Update()
@@ -53,7 +59,7 @@ public class PlayerHand : MonoBehaviour
 
     public void AddCard(GameObject card, Card.CardTypes type)
     {
-        if(gameObject.GetComponentsInChildren<Transform>().Length < 9)
+        if(gameObject.GetComponentsInChildren<CardDragger>().Length < 8)
         {
             Card nCard = new Card(type, lastID);
             playerHand.Add(lastID, nCard);
@@ -64,6 +70,7 @@ public class PlayerHand : MonoBehaviour
             nCD.ID = lastID;
             nCD.ThisCard = nCard;
             lastID++;
+            UICard.instance.SetHandUI();
         }        
     }
 }
