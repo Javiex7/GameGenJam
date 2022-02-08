@@ -32,12 +32,14 @@ public class PauseMenu : MonoBehaviour
 
     public void Resume()
     {
+        FindObjectOfType<AudioManager>().playSound("Button");
         pauseUI.SetActive(false);
         paused = false;
     }
 
     public void Pause()
     {
+        FindObjectOfType<AudioManager>().playSound("Button");
         pauseUI.SetActive(true);
         paused = true;
     }
@@ -53,6 +55,7 @@ public class PauseMenu : MonoBehaviour
 
     public void ReturnToMenu()
     {
+        FindObjectOfType<AudioManager>().playSound("Button");
         StartCoroutine(loadLevel("MainMenu"));
     }
 }

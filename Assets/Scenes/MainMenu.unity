@@ -123,6 +123,75 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &359684107
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 359684108}
+  - component: {fileID: 359684109}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &359684108
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 359684107}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 981.0952, y: 545.57135, z: -6759.2197}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &359684109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 359684107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d089ad77d915d4640b958b99b9145a87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Music
+    clip: {fileID: 8300000, guid: 91acbb0740fb6684d87164c93b34b58e, type: 3}
+    volume: 1
+    pitch: 1
+    src: {fileID: 0}
+  - name: Card
+    clip: {fileID: 8300000, guid: b076c24c2a61a1341b3101e1a9f86dd0, type: 3}
+    volume: 1
+    pitch: 1
+    src: {fileID: 0}
+  - name: Button
+    clip: {fileID: 8300000, guid: d563b1ce67d291342968a78e240f8fba, type: 3}
+    volume: 1
+    pitch: 1
+    src: {fileID: 0}
+  - name: Victory
+    clip: {fileID: 8300000, guid: a5b1225c442997e4886f00fbf656f1b2, type: 3}
+    volume: 0
+    pitch: 0
+    src: {fileID: 0}
+  - name: Defeat
+    clip: {fileID: 8300000, guid: e8b3953e50b832b4b80656529221a48e, type: 3}
+    volume: 0
+    pitch: 0
+    src: {fileID: 0}
 --- !u!1 &491371398
 GameObject:
   m_ObjectHideFlags: 0
