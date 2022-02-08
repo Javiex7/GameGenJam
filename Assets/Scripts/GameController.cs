@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.EventSystems;
 
 public class GameController : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class GameController : MonoBehaviour
     public GameObject hand;
     public GameObject cardPrefab;
     public GameObject enemyZone, playerZone;
+    public GameObject attackEnemyUI, cloneCardUI;
     public Transform[] enemyZones;
     public Transform[] playerZones;
     public int rule1, rule2, rule3;
@@ -26,12 +28,17 @@ public class GameController : MonoBehaviour
     public int playerHP;
     private int rounds;
 
+    private GameObject lastCardClicked;
+    private bool selectCard;
+
 
     void Awake()
     {
         instance = this;
 
         rounds = 0;
+        lastCardClicked = null;
+        selectCard = false;
 
         playerCards = new Dictionary<int, Card>();
         enemyCards = new Dictionary<int, Card>();
@@ -58,6 +65,9 @@ public class GameController : MonoBehaviour
     
     void Start()
     {          
+        attackEnemyUI.SetActive(false);
+        cloneCardUI.SetActive(false);
+
         ExecuteStartingCondition();
     }
     
@@ -208,12 +218,73 @@ public class GameController : MonoBehaviour
             playerHP -= pointsLost;
     }  
 
+    public void Damage2Card(int attackedID)
+    {        
+        Card attacked;
+
+        if(enemyCards.TryGetValue(attackedID, out attacked))
+        {
+            attacked.ReduceHP(2);
+        }        
+    }
+
+    public void ClickCard()
+    {
+        if(selectCard)
+            lastCardClicked = EventSystem.current.currentSelectedGameObject;
+        else
+            lastCardClicked = null;
+    }
+
+    IEnumerator SelectEnemyCard()
+    {
+        attackEnemyUI.SetActive(true);
+        lastCardClicked = null;
+        selectCard = true;
+        while(selectCard)
+        {
+            if(lastCardClicked != null)
+            {
+                CardDragger card = lastCardClicked.GetComponentInChildren<CardDragger>();
+                if(card != null)
+                {
+                    Damage2Card(card.ID);
+                    selectCard = false;
+                }
+            }
+            yield return new WaitForSeconds(0.5f);
+        }
+        attackEnemyUI.SetActive(false);
+    }
+
+    IEnumerator SelectMyCard()
+    {
+        cloneCardUI.SetActive(true);
+        lastCardClicked = null;
+        selectCard = true;
+        while(selectCard)
+        {
+            if(lastCardClicked != null)
+            {
+                CardDragger card = lastCardClicked.GetComponentInChildren<CardDragger>();
+                if(card != null)
+                {
+                    hand.GetComponent<PlayerHand>().AddCard(card.gameObject, card.ThisCard.myType);
+                    selectCard = false;
+                }
+            }
+            yield return new WaitForSeconds(0.5f);
+        }
+        cloneCardUI.SetActive(false);
+    }
+
     private void ExecuteStartingCondition()
     {
         switch(rule1)
         {
             case 0:
                 //Un peluche recibe 2 de daño
+                StartCoroutine("SelectEnemyCard");
             return;
 
             case 1:
@@ -230,6 +301,7 @@ public class GameController : MonoBehaviour
 
             case 4:
                 //Crear copia peluche
+                StartCoroutine("SelectMyCard");
             return;
 
             default:
@@ -240,6 +312,7 @@ public class GameController : MonoBehaviour
         {
             case 0:
                 //Un peluche recibe 2 de daño
+                StartCoroutine("SelectEnemyCard");
             return;
 
             case 1:
@@ -256,6 +329,7 @@ public class GameController : MonoBehaviour
 
             case 4:
                 //Crear copia peluche
+                StartCoroutine("SelectMyCard");
             return;
 
             default:
@@ -266,6 +340,7 @@ public class GameController : MonoBehaviour
         {
             case 0:
                 //Un peluche recibe 2 de daño
+                StartCoroutine("SelectEnemyCard");
             return;
 
             case 1:
@@ -282,6 +357,7 @@ public class GameController : MonoBehaviour
 
             case 4:
                 //Crear copia peluche
+                StartCoroutine("SelectMyCard");
             return;
 
             default:
@@ -289,12 +365,13 @@ public class GameController : MonoBehaviour
         }
     }
 
-    private void ExecuteCardPlayedCondition()
+    public void ExecuteCardPlayedCondition()
     {
         switch(rule1)
         {
             case 10:
                 //Un peluche recibe 2 de daño
+                StartCoroutine("SelectEnemyCard");
             return;
 
             case 11:
@@ -311,6 +388,7 @@ public class GameController : MonoBehaviour
 
             case 14:
                 //Crear copia peluche
+                StartCoroutine("SelectMyCard");
             return;
 
             default:
@@ -321,6 +399,7 @@ public class GameController : MonoBehaviour
         {
             case 10:
                 //Un peluche recibe 2 de daño
+                StartCoroutine("SelectEnemyCard");
             return;
 
             case 11:
@@ -337,6 +416,7 @@ public class GameController : MonoBehaviour
 
             case 14:
                 //Crear copia peluche
+                StartCoroutine("SelectMyCard");
             return;
 
             default:
@@ -347,6 +427,7 @@ public class GameController : MonoBehaviour
         {
             case 10:
                 //Un peluche recibe 2 de daño
+                StartCoroutine("SelectEnemyCard");
             return;
 
             case 11:
@@ -363,6 +444,7 @@ public class GameController : MonoBehaviour
 
             case 14:
                 //Crear copia peluche
+                StartCoroutine("SelectMyCard");
             return;
 
             default:
@@ -376,6 +458,7 @@ public class GameController : MonoBehaviour
         {
             case 20:
                 //Un peluche recibe 2 de daño
+                StartCoroutine("SelectEnemyCard");
             return;
 
             case 21:
@@ -392,6 +475,7 @@ public class GameController : MonoBehaviour
 
             case 24:
                 //Crear copia peluche
+                StartCoroutine("SelectMyCard");
             return;
 
             default:
@@ -402,6 +486,7 @@ public class GameController : MonoBehaviour
         {
             case 20:
                 //Un peluche recibe 2 de daño
+                StartCoroutine("SelectEnemyCard");
             return;
 
             case 21:
@@ -418,6 +503,7 @@ public class GameController : MonoBehaviour
 
             case 24:
                 //Crear copia peluche
+                StartCoroutine("SelectMyCard");
             return;
 
             default:
@@ -428,6 +514,7 @@ public class GameController : MonoBehaviour
         {
             case 20:
                 //Un peluche recibe 2 de daño
+                StartCoroutine("SelectEnemyCard");
             return;
 
             case 21:
@@ -444,6 +531,7 @@ public class GameController : MonoBehaviour
 
             case 24:
                 //Crear copia peluche
+                StartCoroutine("SelectMyCard");
             return;
 
             default:
@@ -457,6 +545,7 @@ public class GameController : MonoBehaviour
         {
             case 30:
                 //Un peluche recibe 2 de daño
+                StartCoroutine("SelectEnemyCard");
             return;
 
             case 31:
@@ -473,6 +562,7 @@ public class GameController : MonoBehaviour
 
             case 34:
                 //Crear copia peluche
+                StartCoroutine("SelectMyCard");
             return;
 
             default:
@@ -483,6 +573,7 @@ public class GameController : MonoBehaviour
         {
             case 30:
                 //Un peluche recibe 2 de daño
+                StartCoroutine("SelectEnemyCard");
             return;
 
             case 31:
@@ -499,6 +590,7 @@ public class GameController : MonoBehaviour
 
             case 34:
                 //Crear copia peluche
+                StartCoroutine("SelectMyCard");
             return;
 
             default:
@@ -509,6 +601,7 @@ public class GameController : MonoBehaviour
         {
             case 30:
                 //Un peluche recibe 2 de daño
+                StartCoroutine("SelectEnemyCard");
             return;
 
             case 31:
@@ -525,6 +618,7 @@ public class GameController : MonoBehaviour
 
             case 34:
                 //Crear copia peluche
+                StartCoroutine("SelectMyCard");
             return;
 
             default:
@@ -538,6 +632,7 @@ public class GameController : MonoBehaviour
         {
             case 40:
                 //Un peluche recibe 2 de daño
+                StartCoroutine("SelectEnemyCard");
             return;
 
             case 41:
@@ -554,6 +649,7 @@ public class GameController : MonoBehaviour
 
             case 44:
                 //Crear copia peluche
+                StartCoroutine("SelectMyCard");
             return;
 
             default:
@@ -564,6 +660,7 @@ public class GameController : MonoBehaviour
         {
             case 40:
                 //Un peluche recibe 2 de daño
+                StartCoroutine("SelectEnemyCard");
             return;
 
             case 41:
@@ -580,6 +677,7 @@ public class GameController : MonoBehaviour
 
             case 44:
                 //Crear copia peluche
+                StartCoroutine("SelectMyCard");
             return;
 
             default:
@@ -590,6 +688,7 @@ public class GameController : MonoBehaviour
         {
             case 40:
                 //Un peluche recibe 2 de daño
+                StartCoroutine("SelectEnemyCard");
             return;
 
             case 41:
@@ -606,6 +705,7 @@ public class GameController : MonoBehaviour
 
             case 44:
                 //Crear copia peluche
+                StartCoroutine("SelectMyCard");
             return;
 
             default:

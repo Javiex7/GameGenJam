@@ -9,6 +9,8 @@ public class Card
     private int currentHp;
     private int myID;
 
+    public CardTypes myType;
+
     public Card(CardTypes type, int _id)
     {
         switch(type)
@@ -47,7 +49,7 @@ public class Card
                 myStats = new CardStats("Tiburon", 10, 3, 0);
             break;
         }
-
+        myType = type;
         currentHp = myStats.HP;
         myID = _id;
     }
