@@ -21,7 +21,7 @@ public class CardDragger : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
     public slotType typeOfSlot;
 
-    private Vector2 scale = new Vector2(1.4f, 1.4f);
+    private Vector2 scale = new Vector2(1.45f, 1.45f);
     private GameObject placeHolder = null;
 
     private bool ruleSetted; //Esta variable sirve para marcar que una carta no se puede mver porque es regla o carta enemiga
@@ -94,7 +94,7 @@ public class CardDragger : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
             if (playedCard == true)
             {
-                this.transform.LeanScale(new Vector2(1.3f, 1.3f), 0.15f);
+                this.transform.LeanScale(Vector2.one, 0.15f);
             }
             else
             {
